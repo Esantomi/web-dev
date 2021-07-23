@@ -8,13 +8,18 @@
     link tag : link 요소에는 외부 리소스와의 연계 정보를 정의
     script tag : script 요소에는 client-side JavaScript를 정의. src 어트리뷰트를 사용하면 외부 JavaScript 파일을 로드 가능
     meta tag : meta 요소는 description, keywords, author, 기타 메타데이터 정의에 사용.
-    
+    body tag : body tag는 HTML 문서의 내용을 나타내며 웹페이지에 단 하나만 존재한다.
+    메타데이터를 제외한 웹페이지를 구성하는 대부분의 요소가 body 요소 내에 기술된다.
 -->
 
 <!DOCTYPE HTML>
 <html>
   <head>
     <meta charset="utf-8"> <!--charset 어트리뷰트는 브라우저가 사용할 문자셋을 정의-->
+    <meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript"> <!--검색엔진이 사용할 키워드 정의-->
+    <meta name="description" content="Web tutorials on HTML and CSS"> <!--웹페이지 설명-->
+    <meta name="author" content="Esan"> <!--웹페이지 저자-->
+    <meta http-equiv="refresh" content="10"> <!--웹페이지 10초마다 refresh-->
     <title>문서 제목</title> <!--브라우저 탭에 '문서 제목'-->
     <style>
         body {
