@@ -1,0 +1,36 @@
+<!--1.4 HTML5 Tag - Basic
+웹페이지의 구성하는 기본 태그-->
+
+
+<!--
+    title tag : title 요소는 문서의 제목을 정의
+    style tag : style 요소에는 HTML 문서를 위한 style 정보를 정의
+    link tag : link 요소에는 외부 리소스와의 연계 정보를 정의
+    script tag : script 요소에는 client-side JavaScript를 정의. src 어트리뷰트를 사용하면 외부 JavaScript 파일을 로드 가능
+    meta tag : meta 요소는 description, keywords, author, 기타 메타데이터 정의에 사용.
+    
+-->
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8"> <!--charset 어트리뷰트는 브라우저가 사용할 문자셋을 정의-->
+    <title>문서 제목</title> <!--브라우저 탭에 '문서 제목'-->
+    <style>
+        body {
+          background-color: yellow;
+          color: blue;
+        }
+      </style> <!--배경색 노란색, 글자색 파란색-->
+    <link rel="stylesheet" href="style.css"> <!--css 파일 연계. 여기는 무의미함-->
+    <script>
+        document.addEventListener('click', function () {
+          alert('클릭했습니다!');
+        });
+      </script> <!--클릭하면 메시지 팝업 출력-->
+    <!-- <script src="main.js"></script> 외부 JS 파일 로드-->
+  </head>
+  <body>
+    화면에 표시할 모든 콘텐츠는 이곳에 기술한다.
+  </body>
+</html>
