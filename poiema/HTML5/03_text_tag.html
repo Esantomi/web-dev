@@ -3,12 +3,25 @@
 
 
 <!--
-    Headings tag : Heading 태그는 제목을 나타낼 때 사용하며 h1에서 h6까지의 태그가 있다.
-    Text formatting tag
+    1. Headings tag : Heading 태그는 제목을 나타낼 때 사용하며 h1에서 h6까지의 태그가 있다.
+    2. Text formatting tag
         b : bold체를 지정. 의미론적(Semantic) 중요성은 없다.
         strong : bold체를 지정. 의미론적(Semantic) 중요성을 갖는다.
         i : Italic체를 지정. 의미론적(Semantic) 중요성은 없다.
-        em : 
+        em : emphasized. Italic체로 표현. 의미론적(Semantic) 중요성을 갖는다.
+        small : small formatting. 작게 표기된다.
+        mark : highlighted text 지정. 형광펜
+        del : deleted (removed) text 지정. 취소선
+        ins : inserted (added) text 지정. 밑줄
+        sub / sup : subscripted(아랫첨자)와 superscripted(윗첨자)
+    3. 본문 태그
+        p : 단락(paragraph) 지정
+        br : 강제 개행(break). 빈 요소(empty element)라 종료 태그 없음
+        &nbsp; : 띄어쓰기 넣는 방법
+        pre : 형식화된(preformatted) text 지정. 작성된 대로 표시된다.
+        hr : 수평줄 삽입. horizontal row
+        q : 짧은 인용문. 큰따옴표로 표시된다.
+        blockquote : 긴 인용문 블록. 문단 전체 들여쓰기로 나타난다.
 -->
 
 <!DOCTYPE HTML>
@@ -16,18 +29,41 @@
     <body>
         <h1>제목 1: 글자 형태 (Text Formatting) 태그</h1>
             <b>b로 볼드 설정</b>
-            <p style="font-weight: bold;">p style로 볼드 설정</p>
+            <p style="font-weight: bold;">p style="font-weight: bold;"로 볼드 설정</p>
             <strong>strong으로 볼드 설정</strong>
+            <hr> <!--수평줄 삽입-->
         <h2>제목 2: <small>small tag</small> 사용</h2> <!--HTML Small Formatting-->
             <i>i로 이탤릭 설정</i>
-            <p style="font-style: italic;">p style로 이탤릭 설정</i>
-            <em>em으로 이탤릭 설정(emphasized)</em>
+            <p style="font-style: italic;">p style="font-style: italic;"로 이탤릭 설정</p>
+            <em>em으로 이탤릭 설정 (emphasized)</em>
+            <hr>
         <h3>제목 3: <mark>mark tag</mark> 사용</h3> <!--HTML Marked Formatting-->
-            <p>p 태그만 사용</p>
             <p>del tag를 쓰면 이렇게 <del>텍스트 취소선</del>이 가능하다.</p> <!--deleted (removed) text-->
             <p>이건 ins tag인데 insert란 뜻이지만 <ins>밑줄</ins> 같다.</p> <!--inserted (added) text-->
-        <h4>제목 4</h4>
-        <h5>제목 5</h5>
+            <p>sub tag는 <sub>subscripted</sub>, sup tag는 <sup>supercripted</sup>를 뜻한다.</p>
+            <hr>
+        <h4>제목 4: 본문 태그 (1)</h4>
+            <p>p 태그는 단락(paragraph)을 지정한다.</p>
+            <p>이렇게 p 태그가 연속으로 오면 단락이 바뀐다.</p>
+            <p>br tag는 개행을 지정한다.<br>빈 요소(empty element)이므로 종료 태그가 없다.</p>
+            <p>띄어쓰기를 길게 하고 싶으면 &nbsp; &nbsp;를 쓴다.(& nbsp;)</p>
+            <hr>
+        <h5>제목 5 : 본문 태그 (2)</h5>
+            <pre>
+            pre tag는 형식화된(preformatted) text를 지정한다.
+            아래에서와 같이 작성된 그대로 표시된다.
+        
+            var myArray = [];
+            console.log(myArray.length); // 0
+                            
+            myArray[1000] = true;  // [ , , ... , , true ]
+                            
+            console.log(myArray.length); // 1001
+            console.log(myArray[0]);     // undefined
+            </pre>
+            <hr>
         <h6>제목 6</h6>
+            <p>q tag는 짧은 인용문을 지정한다: <q>이렇게 큰따옴표로 표시된다.</q></p>
+            <blockquote>blockquote를 쓰면 이렇게 들여쓰기 된 긴 인용문 블록 설정이 가능하다.</blockquote>
     </body>
 </html>
