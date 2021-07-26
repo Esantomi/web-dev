@@ -1,0 +1,22 @@
+<!--1.9 HTML5 Tag - Forms
+사용자와의 커뮤니케이션을 위한 폼 태그-->
+
+
+<!--
+    form : form 태그는 사용자가 입력한 데이터를 수집하기 위해 사용된다.
+        input, textarea, button, select, checkbox, radio button, submit button 등의 입력 양식 태그를 포함할 수 있다.
+        action attribute : 입력 데이터(form data)가 전송될 URL 지정
+        method attribute : 입력 데이터(form data) 전달 방식 지정
+-->
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>1. form</h1>
+        <form action="http://jsonplaceholder.typicode.com/users" method="get">
+            ID: <input type="text" name="id" value="1"><br>
+            username: <input type="text" name="username" value="Bret"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
