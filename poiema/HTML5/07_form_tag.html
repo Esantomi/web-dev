@@ -13,6 +13,16 @@
 <html>
     <body>
         <h1>1. form</h1>
+        <ul>
+            <li>form 태그는 사용자가 입력한 데이터를 수집하기 위해 사용된다.</li>
+            <li>GET과 POST는 HTTP 프로토콜을 이용해서 사용자 입력 데이터를 서버에 전달하는 방식을 나타내며 <strong>HTTP request method</strong>라 한다.
+                <ul>
+                    <li>GET 방식은 전송 URL에 입력 데이터를 쿼리스트링으로 보내는 방식이다.</li>
+                    <li>POST 방식은 Request Body에 담아 보내는 방식이다.</li>
+                    <li>자세한 것은 여기 참조: <a href="https://poiemaweb.com/html5-tag-forms" target="_blank">Poiema form 읽기</a></li>
+                </ul>
+            </li>
+        </ul>
         <form action="http://jsonplaceholder.typicode.com/users" method="get">
             ID: <input type="text" name="id" value="1"><br>
             username: <input type="text" name="username" value="Bret"><br>
