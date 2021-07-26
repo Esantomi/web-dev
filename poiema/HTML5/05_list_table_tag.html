@@ -3,26 +3,145 @@
 
 
 <!--
-    목록(list)
+    li : list 내용
+    1. ol : ordered list
+        type attribute : "1", "A", "a", "I", "i"
+        start attribute : 시작 번호 지정
+        reversed attribute : 거꾸로
+    2. ul : unorderd list
+    3. 중첩 목록(nested list) : 리스트는 중첩이 가능함
+-->
+
+<!--
+    table : 표 만드는 태그
+        border attribute : 표 테두리 두께 지정
+        rowspan attribute : 해당 셀이 점유하는 행의 수 지정
+        colspan attribute : 해당 셀이 점유하는 열의 수 지정
+    tr : table row. 표 내부의 행을 나타내는 태그
+    th : table header. 헤더 칸을 나타내는 태그 (중앙 정렬, 두껍게 기본)
+    td : table data. 일반적인 칸을 나타내는 태그 (왼쪽 정렬 기본)
 -->
 
 <!DOCTYPE html>
 <html>
+    <head> <!--표 형식 설정-->
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 15px;
+            }
+        </style>
+    </head>
     <body>
-        <h1>List & Table</h1>
+        <h1>List</h1>
 
-        <h2>순서 없는 목록 (Unordered List)</h2>
+        <h2>1. 순서 없는 목록 (Unordered List)</h2>
         <ul>
             <li>ul tag를 먼저 열고</li>
             <li>그 안에 li tag로 item을 작성한다.</li>
             <li>이후 /ul tag로 닫아준다.</li>
         </ul>
 
-        <h2>순서있는 목록 (Ordered List)</h2>
+        <h2>2. 순서있는 목록 (Ordered List)</h2>
         <ol>
             <li>ol tag를 먼저 열고</li>
             <li>그 안에 li tag로 item을 작성한다.</li>
             <li>이후 /ol tag로 닫아준다.</li>
         </ol>
+
+        <h3>2-1. type attribute</h3>
+        <ol type="I">
+            <li value="2">대문자 로마숫자로 써 보기</li>
+            <li value="4">ol tag 안에 type 설정을 해 주면 된다.</li>
+            <li value="6">li tag 안에 value 설정해서 번호 지정도 가능하다.</li>
+        </ol>
+
+        <h3>2-2. start attribute</h3>
+        <ol start="3">
+            <li>ol tag 안에 start 설정을 해 주면</li>
+            <li>이렇게 시작 번호를 설정해 줄 수도 있다.</li>
+            <li>당연히 start="3"으로 세팅했다.</li>
+        </ol>
+
+        <h3>2-3. reversed attribute</h3>
+        <ol reversed>
+            <li>ol tag 뒤에 reversed를 넣어주니</li>
+            <li>이렇게 순서가 뒤집힌다.</li>
+            <li>그냥 ol reversed 가 전부다.</li>
+        </ol>
+
+        <h2>3. 중첩 목록</h2>
+        <ul>
+            <li>마라탕</li>
+            <li>스시
+                <ol>
+                    <li>오도로</li>
+                    <li>아마에비</li>
+                    <li>엔가와</li>
+                </ol>
+            </li>
+            <li>치킨</li>
+        </ul>
+
+
+        <!--Table-->
+        <h1>Table</h1>
+        <img src="./html_table_structure.gif">
+
+        <h2> tr, th, td tag로 table 만들기</h2>
+        <table border="5"> <!--표 테두리 두께 지정-->
+            <tr> <!--table row-->
+                <th>First name</th> <!--table header-->
+                <th>Last name</th>
+                <th>Score</th>
+            </tr>
+            <tr>
+                <td>Jill</td> <!--table data-->
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>80</td>
+            </tr>
+        </table>
+
+        <h2>2개의 culumn을 span</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th colspan="2">Telephone</th> <!--Telephone은 아래 2개의 열을 가짐-->
+            </tr>
+            <tr>
+                <td>Bill Gates</td>
+                <td>555 77 854</td>
+                <td>555 77 855</td>
+            </tr>
+        </table>
+
+        <h2>2개의 row를 span</h2>
+        <table>
+            <tr>
+                <th>Name:</th>
+                <td>Bill Gates</td>
+            </tr>
+            <tr>
+                <th rowspan="2">Telephone:</th> <!--Telephone은 우측에 2개의 행을 가짐-->
+                <td>555 77 854</td>
+                <!-- <td>555 77 855</td> 여기에 넣으면 세 번째 열이 생김 -->
+            </tr>
+            <tr>
+                <td>555 77 855</td> <!--세 번째 table row이므로 따로 tr을 만들어 준다.-->
+            </tr>
+        </table>
     </body>
 </html>
