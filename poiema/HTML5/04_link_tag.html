@@ -1,0 +1,49 @@
+<!--1.6 HTML5 Tag - Link
+HTML의 핵심 개념인 Hyperlink-->
+
+
+<!--
+    하이퍼링크(hyperlink) : 한 텍스트에서 다른 텍스트로 건너뛰어 읽을 수 있는 기능.
+    a(anchor) tag : HTML link는 hyperlink를 의미하며 <a> tag로 사용한다.
+    href attribute : href 어트리뷰트는 이동하고자 하는 파일의 위치(경로)를 값으로 받는다.
+        디렉터리(directory) : 루트 디렉터리(/), 홈 디렉터리(/Users/{계정명}), 작업 디렉터리(./), 부모 디렉터리(../)
+        파일 경로(file path) : 절대 경로(absolute path), 상대 경로(relative path)
+    target attribute : 링크를 클릭했을 때 윈도우를 어떻게 오픈할지 지정
+        _self : 링크를 클릭했을 때 연결 문서를 현재 윈도우에서 오픈한다. (기본값)
+        _blank : 링크를 클릭했을 때 연결 문서를 새로운 윈도우나 탭에서 오픈한다.
+-->
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <!--절대 경로 URL-->
+        <a href="http://www.google.com">구글로 가즈아!</a><br>
+        <a href="http://www.google.com" target="_blank">새 창에서 구글로 가즈아!</a><br>
+
+        <!--상대 경로 URL-->
+        <a href="./03_text_tag.html">Local file: 텍스트 태그 복습하자!</a><br>
+
+        <!--파일 다운로드-->
+        <a href="./my.pdf" download>Download file: 파일이 없어서 error 뜸</a><br>
+
+        <!--페이지 내부 이동-->
+        <a href="#">fragment identifier: 페이지 내부 이동 기능</a><br>
+
+        <!--메일 보내는 링크-->
+        <a href="mailto:deomi@knou.com">나에게 메일 보내기!</a><br>
+
+        <!--script-->
+        <a href="javascript:alert('Hello');">누르면 Hello 팝업 뜸</a>
+
+
+        <!--fragment identifier를 이용한 페이지 내부 이동 방법-->
+        <h2 id="top">Top of page!</h2>
+
+        <p>In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since.</p>
+        <p>"Whenever you feel like criticizing any one," he told me, "just remember that all the people in this world haven't had the advantages that you've had."</p>
+        <p>He didn't say any more, but we've always been unusually communicative in a reserved way, and I understood that he meant a great deal more than that. In consequence, I'm inclined to reserve all judgments, a habit that has opened up many curious natures to me and also made me the victim of not a few veteran bores. The abnormal mind is quick to detect and attach itself to this quality when it appears in a normal person, and so it came about that in college I was unjustly accused of being a politician, because I was privy to the secret griefs of wild, unknown men. Most of the confidences were unsought-frequently I have feigned sleep, preoccupation, or a hostile levity when I realized by some unmistakable sign that an intimate revelation was quivering on the horizon; for the intimate revelations of young men, or at least the terms in which they express them, are usually plagiaristic and marred by obvious suppressions. Reserving judgments is a matter of infinite hope. I am still a little afraid of missing something if I forget that, as my father snobbishly suggested, and I snobbishly repeat, a sense of the fundamental decencies is parcelled out unequally at birth.</p>
+        <p>And, after boasting this way of my tolerance, I come to the admission that it has a limit. Conduct may be founded on the hard rock or the wet marshes, but after a certain point I don't care what it's founded on. When I came back from the East last autumn I felt that I wanted the world to be in uniform and at a sort of moral attention forever; I wanted no more riotous excursions with privileged glimpses into the human heart. Only Gatsby, the man who gives his name to this book, was exempt from my reaction-Gatsby, who represented everything for which I have an unaffected scorn. If personality is an unbroken series of successful gestures, then there was something gorgeous about him, some heightened sensitivity to the promises of life, as if he were related to one of those intricate machines that register earthquakes ten thousand miles away. This responsiveness had nothing to do with that flabby impressionability which is dignified under the name of the "creative temperament"-it was an extraordinary gift for hope, a romantic readiness such as I have never found in any other person and which it is not likely I shall ever find again. No-Gatsby turned out all right at the end; it is what preyed on Gatsby, what foul dust floated in the wake of his dreams that temporarily closed out my interest in the abortive sorrows and short-winded elations of men.</p>
+
+        <a href="#top">Go to top</a>
+    </body>
+</html>
