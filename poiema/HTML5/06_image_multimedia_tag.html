@@ -1,0 +1,60 @@
+<!--1.8 HTML5 Tag - Image & Multimedia
+이미지의 표현과 동영상, 음악 등 멀티미디어를 지원하는 태그-->
+
+
+<!--
+    img : 이미지 태그
+    audio : 오디오 태그
+    video : 비디오 태그
+-->
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>이미지(image)</h1>
+
+        <h2>image attribute</h2>
+        <ul>
+            <li>src attribute : 이미지 파일 경로</li>
+            <li>alt attribute : 이미지 파일이 없을 경우 표시되는 문장</li>
+            <li>width attribute : 이미지의 너비 (CSS에서 지정하는 것이 일반적)</li>
+            <li>height attribute : 이미지의 높이 (CSS에서 지정하는 것이 일반적)</li>
+        </ul>
+        <img src="kokam.jpg" alt="꼬깜 이미지가 없어요." width="300">
+        <img src="assets/images/wrongname.gif" alt="이미지가 없어서 alt 값 표시">
+
+
+        <h1>미디어(media)</h1>
+
+        <h2>오디오(audio)</h2>
+        <ul>
+            <li>audio 태그는 HTML5에서 새롭게 추가된 태그이다.</li>
+            <li>IE8 이하에서는 사용할 수 없다.</li>
+            <li>attribute로 src, preload, autoplay, loop, controls 등이 있다.</li>
+            <li>웹 브라우저별로 지원하는 음악 파일 형식이 다르다.</li>
+        </ul>
+        <audio src="Kalimba.mp3" controls></audio><br> <!--controls 사용-->
+
+        <ul>
+            <li>source 태그를 사용하여 파일 형식의 차이 문제를 해결할 수 있다.</li>
+            <li>type 어트리뷰트는 생략 가능하다.</li>
+        </ul>
+        <audio controls>
+            <source src="Kalimba.mp3" type="audio/mpeg">
+            <source src="Kalimba.ogg" type="audio/ogg">
+        </audio>
+
+        <h2>비디오(video)</h2>
+        <ul>
+            <li>video 태그는 HTML5에서 새롭게 추가된 태그이다.</li>
+            <li>IE8 이하에서는 사용할 수 없다.</li>
+            <li>src, poster, preload, autoplay, loop, controls, width, height 등의 attribute를 갖는다.</li>
+            <li>audio 태그와 마찬가지로 파일 형식의 차이 문제가 발생할 수 있다.</li>
+            <li>source 태그를 사용하여 형식 차이 문제를 해결한다. type 어트리뷰트는 생략 가능하다.</li>
+        </ul>
+        <video width="640" height="360" controls>
+            <source src="wildlife.mp4" type="video/mp4">
+            <source src="wildlife.webm" type="video/webm">
+        </video>
+    </body>
+</html>
