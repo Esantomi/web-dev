@@ -190,5 +190,23 @@
         <h2>4. textarea</h2>
         <p>textarea 태그는 여러 줄의 글자를 입력할 때 사용한다.</p>
         <textarea name="message" rows="10" cols="30">아무 글이나 쓰세요.</textarea>
+
+
+        <h2>5. button</h2>
+        <ul>
+            <li>button 태그는 클릭할 수 있는 버튼을 생성한다.</li>
+            <button type="button" onclick="alert('이건 button tag로 만든 것')">눌러!</button>
+            <li>input type="button"과 유사하지만 input 태그는 빈 태그(empty element)인 반면 button 태그는 그렇지 않다.</li>
+            <input type="button" value="눌러!" onclick="alert('이건 input tag로 만든 것')">
+            <li>따라서 button 요소에는 텍스트나 이미지 같은 콘텐츠를 사용할 수 있다.</li>
+            <li>type 어트리뷰트는 반드시 지정하는 게 좋고 어트리뷰트 값으로 button, reset, submit을 지정할 수 있다.</li>
+            <li>button 태그는 어트리뷰트만을 받아들이는 input 태그와 달리 콘텐츠로 문자열은 물론 HTML 요소를 받을 수도 있다는 장점이 있다.
+                <ul>
+                    <li>주의할 것은 IE의 경우, submit되는 값이 다를 수 있는 것이다.</li>
+                </ul>
+            </li>
+            <li>아래 예제의 경우, IE6, IE7에는 ‘철수(foo)’ 대신 ‘Click me’를 서버로 전송한다. 따라서 오래된 IE를 지원해야 한다면 input 태그를 사용하는 것이 바람직하다.</li>
+            <button type="submit" name="myButton" value="철수(foo)">암것도 아님</button>
+        </ul>
     </body>
 </html>
