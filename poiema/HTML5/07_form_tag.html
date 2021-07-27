@@ -49,6 +49,7 @@
             <input type="submit" value="Submit"> <!--submit 버튼-->
         </form>
 
+
         <h2>2. input</h2>
         <ul>
             <li>input 태그는 form 태그 중에서 가장 중요한 태그로 사용자로부터 데이터를 입력받기 위해 사용된다.</li>
@@ -59,7 +60,7 @@
         <img src="form_type.png">
 
         <h3>button</h3>
-        <input type="button" value="Click me" onclick="alert('Hello world!')">
+        <input type="button" value="Click me" onclick="alert('input 태그 내에 onclick=alert(텍스트) 지정해 줌')">
         <hr>
 
         <h3>checkbox</h3>
@@ -152,5 +153,37 @@
 
         <h3>week</h3>
         <input type="week" name="week_year">
+
+
+        <h2>3. Select</h2>
+        <ul>
+            <li>복수개의 리스트에서 복수개의 아이템을 선택할 때 사용한다.</li>
+            <li>서버에 전송되는 데이터는 select 요소의 name 어트리뷰트를 키로, option 요소의 value 어트리뷰트를 값으로 하여 key=value의 형태로 전송된다.</li>
+        </ul>
+
+        <select name="cars1">
+            <option value="volvo" selected>Volvo</option>
+            <option value="saab" disabled>Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+        </select>
+      
+        <select name="cars2" size="4" multiple>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi" selected>Audi</option>
+        </select>
+      
+        <select name="cars3">
+            <optgroup label="Swedish Cars">
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+            </optgroup>
+            <optgroup label="German Cars" disabled>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </optgroup>
+        </select>
     </body>
 </html>
