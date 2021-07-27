@@ -23,12 +23,13 @@ CSS 기본 문법-->
         <p>이전 버전의 HTML과 달리, HTML5에서는 <strong>HTML은 정보와 구조화, CSS는 styling의 정의</strong>라는 본연의 임무에 충실한 명확한 구분이 이루어졌다.</p>
         <p>HTML과 CSS는 각자의 문법을 갖는 별개의 언어이나, HTML 없이 단독으로 존재하는 CSS는 의미가 없다.</p>
 
+
         <h2>1. 셀렉터 (Selector, 선택자)</h2>
         <p>셀렉터(Selector)는 스타일을 적용하고자 하는 HTML 요소를 선택하기 위해 CSS에서 제공하는 수단이다.</p>
         <p>아래와 같은 구문을 <strong>Rule Set(또는 Rule)</strong>이라 하며 셀렉터에 의해 선택된 특정 HTML 요소를 어떻게 렌더링(Rendering)할 것인지 브라우저에 지시하는 역할을 한다.</p>
         <img src="css-syntax.png", width="800">
-        <p>위의 CSS Rule set은 HTML 문서에 속해 있는 셀렉터를 통해 모든 h1 요소를 선택한 후 선택된 h1 요소의 스타일을 선언 블록에서 정의하고 있다.</p>
-        <p>이와 같은 Rule Set의 집합을 <strong>스타일시트(Style Sheet)</strong>라 한다.</p>
+        <p>위의 CSS Rule set은 HTML 문서에 속해 있는 셀렉터를 통해 모든 h1 요소를 선택한 후 선택된 h1 요소의 스타일을 선언 블록에서 정의하고 있다.<br>이와 같은 Rule Set의 집합을 <strong>스타일시트(Style Sheet)</strong>라 한다.</p>
+
 
         <h2>2. 프로퍼티 (Property / 속성)</h2>
         <p>셀렉터로 HTML 요소를 선택하고 {} 내에 프로퍼티(속성)와 값을 지정하는 것으로 다양한 style을 정의할 수 있다.</p>
@@ -36,6 +37,7 @@ CSS 기본 문법-->
             <li>프로퍼티는 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Keyword_index" target="_blank">표준 스펙</a>으로 이미 지정되어 있는 것을 사용하여야하며 사용자가 임의로 정의할 수 없다.</li>
             <li>여러 개의 프로퍼티를 연속해서 지정할 수 있으며 세미콜론(;)으로 구분한다.</li>
         </ul>
+
 
         <h2>3. 값 (Value / 속성값)</h2>
         <p>프로퍼티의 값은 해당 프로퍼티에 사용할 수 있는 값을 “키워드”나 “크기 단위” 또는 “색상 표현 단위” 등의 특정 단위로 지정하여야 한다.</p>
@@ -54,13 +56,22 @@ CSS 기본 문법-->
         </pre>
 
         <h3>4.2 Embedding style</h3>
-        <p>HTML 내부에 CSS를 포함시키는 방식이다. link style을 쓰는 게 좋다.</p>
-        <p>head 태그 내부에 style 태그를 넣고 직접 css를 써 주는 식이다.</style></p>
+        <p>HTML 내부에 CSS를 포함시키는 방식이다. link style을 쓰는 게 좋다.<br>head 태그 내부에 style 태그를 넣고 직접 css를 써 주는 식이다.</style></p>
 
         <!--3. Inline style: HTML요소의 style 프로퍼티에 CSS를 기술하는 방식-->
         <h3>4.3 Inline style</h3>
         <p>HTML요소의 style 프로퍼티에 CSS를 기술하는 방식이다. JavaScript가 동적으로 CSS를 생성할 때 사용하는 경우가 있다. link style을 쓰는 게 더 일반적이다.</p>
         <h1 style="color: red">Inline style로 지정한 제목</h1>
         <p style="background: aqua">p style로 지정해 준 것</p>
+
+
+        <h2>5. Reset CSS 사용하기</h2>
+        <p>모든 웹 브라우저는 디폴트 스타일(브라우저가 내장하고 있는 기본 스타일)을 가지고 있어 CSS가 없어도 작동한다. 그런데 웹브라우저에 따라 디폴트 스타일이 상이하고 지원하는 tag나 style도 제각각이어서 주의가 필요하다.</p>
+        <p><strong>Reset CSS</strong>는 기본적인 HTML 요소의 CSS를 초기화하는 용도로 사용한다. 즉, 브라우저 별로 제각각인 디폴트 스타일을 하나의 스타일로 통일시켜 주는 역할을 한다.<br>자주 사용되는 Reset CSS는 다음과 같다.</p>
+        <ul>
+            <li><a href="https://meyerweb.com/eric/tools/css/reset/" target="_blank">Eric Meyer’s reset</a></li>
+            <p><a href="css/EricMeyersReset.css" target="_blank">보러 가기</a></p>
+            <li><a href="https://necolas.github.io/normalize.css/" target="_blank">normalize.css</a></li>
+        </ul>
     </body>
 </html>
