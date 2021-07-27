@@ -161,29 +161,34 @@
             <li>서버에 전송되는 데이터는 select 요소의 name 어트리뷰트를 키로, option 요소의 value 어트리뷰트를 값으로 하여 key=value의 형태로 전송된다.</li>
         </ul>
 
-        <select name="cars1">
-            <option value="volvo" selected>Volvo</option>
-            <option value="saab" disabled>Saab</option>
+        <select name="cars1"> <!--select 이름-->
+            <option value="volvo" selected>Volvo</option> <!--selected: 기본 선택 값-->
+            <option value="saab" disabled>Saab</option> <!--disabled: 선택 불가-->
             <option value="fiat">Fiat</option>
             <option value="audi">Audi</option>
         </select>
       
-        <select name="cars2" size="4" multiple>
+        <select name="cars2" size="4" multiple> <!--크기 4칸, 여러 개 선택 지정-->
             <option value="volvo">Volvo</option>
             <option value="saab">Saab</option>
             <option value="fiat">Fiat</option>
-            <option value="audi" selected>Audi</option>
+            <option value="audi" selected>Audi</option> <!--기본 선택 값-->
         </select>
       
-        <select name="cars3">
-            <optgroup label="Swedish Cars">
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
+        <select name="cars3"> <!--상위 그룹 2개에 하위 그룹 2개-->
+            <optgroup label="Swedish Cars"> <!--optgroup: option을 그룹화한다-->
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
             </optgroup>
-            <optgroup label="German Cars" disabled>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
+            <optgroup label="German Cars" disabled> <!--그룹 전체 선택 불가-->
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
             </optgroup>
         </select>
+
+
+        <h2>4. textarea</h2>
+        <p>textarea 태그는 여러 줄의 글자를 입력할 때 사용한다.</p>
+        <textarea name="message" rows="10" cols="30">아무 글이나 쓰세요.</textarea>
     </body>
 </html>
