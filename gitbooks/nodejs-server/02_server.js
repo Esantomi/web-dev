@@ -4,7 +4,7 @@
 // 서버 구축하기 - http basic
 
 
-// server.js (강의에서의 파일명)
+// server.js
 // 1. 서버 사용을 위해서 http 모듈을 http 변수에 담는다. (모듈과 변수의 이름은 달라도 된다.) 
 var http = require('http');  // require: 외부 모듈 import
 
@@ -38,7 +38,7 @@ var server = http.createServer(function(request, response){
     /* {'Content-Type' : 'text/html'} 값은 서버 측에서 보내주는 컨텐츠의 타입이 텍스트고, html 형태라는 것을 정의한다.
     Content-Type 이라는 키값 외에도 Authorization, Cookie 등의 다양한 값들을 지정할 수 있다. */
 
-    
+
 // 3. listen 함수로 8080 포트를 가진 서버를 실행한다.
 // 서버가 실행된 것을 콘솔창에서 확인하기 위해 'Server is running...' 로그를 출력한다.
 server.listen(8080, function(){ 
