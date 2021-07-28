@@ -51,7 +51,7 @@ print('출력 내용');  // param1=출력 내용
 
 
 // 다. 조건문
-// JavaScript에는 if와 switch가 있음
+// JavaScript에는 if와 switch가 있다.
 
 var a = 10;
 
@@ -62,3 +62,72 @@ if (a > 11) {
 } else {
     console.log('a가 11보다 작습니다');
 }  // a가 11보다 작습니다
+// console은 node.js 에서 콘솔 화면에 로그를 사용하기 위한 내장객체이고, 멤버변수인 log('내용')로 로그를 출력할 수 있다.
+
+
+// 라. 반복문
+// 반복문에는 for, while, do ~ while이 있다.
+
+// 0부터 9까지 출력하는 while문
+var i=0;
+while(i < 10) {
+    console.log("for : i의 값은="+i);
+    i=i+1;
+}
+
+
+// 마. 클래스
+
+/* JavaScript는 프로토타입 기반의 함수형 언어이므로 특별히 객체지향을 위한 class는 없다.
+함수형 언어는 함수 자체를 하나의 객체로 취급하므로 단일함수 또는 파일 자체를 하나의 class처럼 사용할 수 있다. */
+
+
+// JavaScript에서 함수를 사용해 객체화하는 방법
+
+// class 선언 - 첫 번째 글자를 대문자(Camel case)로 함수를 하나 선언한다.
+function Class1(msg){
+    // 변수를 객체의 멤버로 사용하기 위해 this 예약어를 사용해서 정의한다.
+    this.name = '클래스1임';
+    this.message = msg;
+
+    // this를 사용하지 않은 변수
+    message2 = "this 안 쓴 변수 값임";
+    // 멤버함수 선언
+    this.print = function(){
+        console.log(message2);
+    };
+}
+
+// 객체를 생성
+var myClass1 = new Class1('new class1로 객체 생성하기!');  // new 연산자를 통해 함수를 초기화함으로써 객체처럼 사용할 수 있다.
+console.log(myClass1.name);     // 클래스1임
+console.log(myClass1.message);  // new class1로 객체 생성하기!
+
+// this를 사용하지 않은 message2 변수는 외부에서 참조할 수 없다.
+console.log(myClass1.message2);  // undefined
+// this로 선언된 함수를 통해 사용할 수 있다.
+myClass1.print();  // this 안 쓴 변수 값임
+
+
+// prototype 예약어를 이용해서 Class1 외부에서 함수를 추가하는 법
+function Class2(msg){
+    this.name = '클래스2임';
+    this.message = msg;
+
+    message2 = "prototype으로 함수 추가해 보자!";
+}
+
+//Class2 객체의 prototype을 가져와서 message 값을 리턴하는 함수를 하나 추가한다.
+Class2.prototype.getMessage = function(){
+    return this.message;
+}
+
+Class2.prototype.getMessage2 = function(){
+    return this.message2;
+}
+
+// 객체를 생성
+var myClass2 = new Class2('class2는 prototype으로 message 리턴!');
+console.log(myClass2.getMessage());  // class2는 prototype으로 message 리턴!
+// 내부에 선언된 함수와는 다르게 prototype으로 선언한 함수는 값을 사용할 수 없다.
+console.log(myClass2.getMessage2());  // undefined
