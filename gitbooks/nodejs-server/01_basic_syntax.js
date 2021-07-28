@@ -1,7 +1,7 @@
 // node.js 서버 구축하기
 // https://javafa.gitbooks.io/nodejs_server_basic/content/
 
-// JavaScript 기초문법
+// JavaScript 기초 문법
 
 
 // 가. 변수의 선언 및 사용
@@ -79,7 +79,8 @@ while(i < 10) {
 // 마. 클래스
 
 /* JavaScript는 프로토타입 기반의 함수형 언어이므로 특별히 객체지향을 위한 class는 없다.
-함수형 언어는 함수 자체를 하나의 객체로 취급하므로 단일함수 또는 파일 자체를 하나의 class처럼 사용할 수 있다. */
+대신 함수형 언어는 함수 자체를 하나의 객체로 취급하므로 단일함수 또는 파일 자체를 하나의 class처럼 사용할 수 있다.
+즉, JS에 class는 없지만 함수(function)와 new를 통해 클래스를 비스무리하게 흉내낼 수 있다. */
 
 
 // JavaScript에서 함수를 사용해 객체화하는 방법
@@ -99,7 +100,7 @@ function Class1(msg){
 }
 
 // 객체를 생성
-var myClass1 = new Class1('new class1로 객체 생성하기!');  // new 연산자를 통해 함수를 초기화함으로써 객체처럼 사용할 수 있다.
+var myClass1 = new Class1('new class1로 객체 생성하기!');  // new 연산자를 통해 함수를 변수로 초기화함으로써 객체처럼 사용할 수 있다.
 console.log(myClass1.name);     // 클래스1임
 console.log(myClass1.message);  // new class1로 객체 생성하기!
 
@@ -114,6 +115,7 @@ function Class2(msg){
     this.name = '클래스2임';
     this.message = msg;
 
+    // this로 선언되지 않은 변수는 prototype으로 추가한 함수에서는 참조할 수 없다.
     message2 = "prototype으로 함수 추가해 보자!";
 }
 
@@ -131,3 +133,22 @@ var myClass2 = new Class2('class2는 prototype으로 message 리턴!');
 console.log(myClass2.getMessage());  // class2는 prototype으로 message 리턴!
 // 내부에 선언된 함수와는 다르게 prototype으로 선언한 함수는 값을 사용할 수 없다.
 console.log(myClass2.getMessage2());  // undefined
+
+
+// Node.js에서 객체를 사용하는 방법
+
+/* Node.js에서는 require를 사용해서 파일 전체를 객체로 불러올 수 있다.
+또한 파일 내부의 멤버들은 exports로 정의할 수도 있고,
+JS에서처럼 this나 prototype으로 선언하고 module.exports 명령어로 한번에 처리할 수도 있다. */
+
+// NodeClass 를 선언한다. 여기서 NodeClass 는 변수명이 아니라 class명 이므로 첫 글자를 대문자로 한다.
+var NodeClass = require('./NodeClass');  // import해 올 NodeClass.js 파일
+
+// new 연산자를 사용해서 NodeClass 클래스를 nodeClass 변수로 초기화한다.
+var nodeClass = new NodeClass();
+
+// setMessage 함수로 값을 입력한다.
+nodeClass.setMessage('Node.js에서 파일을 객체로 써 봅시다.');
+
+// 입력된 값을 출력한다.
+console.log(nodeClass.getMessage());  // Node.js에서 파일을 객체로 써 봅시다.
