@@ -30,16 +30,16 @@ var sum3 = '이순신' + 3;
 
 // 나. 함수의 선언 및 사용
 
-// 1. 세개의 파라미터를 더한 후 결과값을 리턴하는 함수를 선언
-function sum(param1, param2, param3){
+// 1. 세 개의 패러미터를 더한 후 결과값을 리턴하는 함수를 선언
+function summ(param1, param2, param3){
     return param1 + param2 + param3;
 }
 
-// 2. 함수 실행 후 결과값을 result 에 대입
-var result = sum(1,2,3);
+// 2. 함수 실행 후 결과값을 result에 대입
+var result = summ(1,2,3);
 
 // 3. result 에 담긴 결과값을 출력
-console.log('result='+result);
+console.log('result='+result);  // result=6
 
 // 4. 결과값이 없는 함수의 선언
 function print(param1){
@@ -47,4 +47,18 @@ function print(param1){
 }
 
 // 5. 함수호출 : return 이 없는 함수는 로직을 자체적으로 처리하기 때문에 결과값 대입 불필요
-print('출력내용');
+print('출력 내용');  // param1=출력 내용
+
+
+// 다. 조건문
+// JavaScript에는 if와 switch가 있음
+
+var a = 10;
+
+if (a > 11) {
+    console.log('a가 11보다 큽니다'); 
+} else if(a == 11) {
+    console.log('a가 11과 같습니다');
+} else {
+    console.log('a가 11보다 작습니다');
+}  // a가 11보다 작습니다
