@@ -14,13 +14,14 @@ var url = require('url');
 
 var server = http.createServer(function(request,response){
 
-  // 1. 실제 요청한 주소전체를 콘솔에 출력  
-  console.log(request.url);
-  var parsedUrl = url.parse(request.url);
+  // 1. 실제 요청한 주소 전체를 콘솔에 출력  
+  console.log(request.url);                   // localhost:8080/address로 들어갔다면 '/address'
+  // var parsedUrl = url.parse(request.url);  // deprecated
+  var parsedUrl = new URL('http://localhost:8080'+request.url);
 
-  // 2. parsing 된 url 중에 서버URI에 해당하는 pathname 만 따로 저장
+  // 2. parsing된 url 중에 서버URI에 해당하는 pathname만 따로 저장
   var resource = parsedUrl.pathname;
-  console.log('resource path=%s',resource);
+  console.log('resource path=%s', resource);  // localhost:8080/address로 들어갔다면 'resource path=/address'
 
   // 3. 리소스에 해당하는 문자열이 아래와 같으면 해당 메시지를 클라이언트에 전달
   if(resource == '/address'){
@@ -31,15 +32,16 @@ var server = http.createServer(function(request,response){
     response.end('02-3545-1237');
   }else if(resource == '/name'){
     response.writeHead(200, {'Content-Type':'text/html'});
-    response.end('Hong Gil Dong');
+    response.end('Kokam');
   }else{
     response.writeHead(404, {'Content-Type':'text/html'});
     response.end('404 Page Not Found');
+    // 404: 서버와 통신할 수는 있지만 서버가 요청한 바를 찾을 수 없다는 것을 가리키는 HTTP 표준 응답 코드
   }
 
 });
 
-// 4. 서버 포트 80번으로 변경 (안 돼서 8070 포트로 변경)
+// 4. 서버 포트 80번으로 변경 (안 돼서 8080 포트로 변경)
 server.listen(8080, function(){
     console.log('Server is running...');
 });
