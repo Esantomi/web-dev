@@ -1,7 +1,7 @@
 // custom_module.js
 // https://javafa.gitbooks.io/nodejs_server_basic/content/chapter6.html
 
-// 05_custon_module.js로 export하기 위한 용도의 js 파일
+// 05_custom_module.js로 export하기 위한 용도의 js 파일
 
 /* exports 객체로 먼저 사용할 변수명을 선언하고 해당 변수에 함수, 값 또는 객체를 대입해서 사용할 수 있다.
 함수형 언어에서 함수는 객체지향에서의 객체와 같이 각각의 함수가 객체처럼 포인터를 가진다.
