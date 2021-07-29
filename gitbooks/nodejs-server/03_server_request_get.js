@@ -9,6 +9,10 @@
 
 /* 쿼리 스트링(Query String) : 실제 주소값 뒤에 붙어 가는 값 */
 
+/* 외부 모듈
+URL : 클라이언트가 요청한 주소값을 javascript 객체로 변환해서 사용할 수 있게 하는 모듈
+querystring : 주소로 전달된 Query String을 변환해서 javascript 객체로 사용할 수 있게 해 주는 모듈 */
+
 
 // server_request_get.js
 // 가. GET 요청 처리
@@ -20,6 +24,10 @@ var url = require('url');  // url 모듈 임포트
 // 2. 요청한 url 중에 Query String을 객체로 만들기 위해 querystring 모듈 사용
 var querystring = require('querystring');  // querystring 모듈 임포트
 
+/* http 모듈의 createServer( ) 함수로 서버를 생성해서 사용하는데
+이때 클라이언트의 요청이 서버 쪽으로 전달되면 node.js 서버에서는
+클라이언트 요청을 request 객체로 생성해서 반환해 준다. */
+
 var server = http.createServer(function(request,response){
 
     // 3. 콘솔 화면에 로그 시작 부분을 출력
@@ -28,17 +36,24 @@ var server = http.createServer(function(request,response){
     // 4. 브라우저에서 요청한 주소를 parsing하여 객체화 후 출력
     var parsedUrl = new URL('http://localhost:8080/'+request.url);
     // var parsedUrl = url.parse(request.url);  // deprecated
-    console.log(parsedUrl);
+    console.log(parsedUrl);  // [Object: null prototype] {} 출력
 
     // 5. 객체화된 url 중에 Query String 부분만 따로 객체화 후 출력
-    var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
+    var parsedQuery = querystring.parse(parsedUrl.query,'&','=');  // &과 =는 구분자
     console.log(parsedQuery);
+
+    // parsedQuery에 담긴 객체를 parsedQuery.var1 형태로 사용
+    // var result1 = parsedQuery.var1;
+    // console.log('전달된 var1의 값은 ' +result1+'입니다');
 
     // 6. 콘솔화면에 로그 종료 부분을 출력
     console.log('--- 로그 종료 ---');
 
     response.writeHead(200, {'Content-Type':'text/html'});
-    response.end('Hello node.js!!');
+    // response.end('Hello node.js!!');
+    // response.end('var1의 값은 '+parsedQuery.var1);
+    response.end('var1의 값=' + parsedQuery.var1 + ', var2의 값=' + parsedQuery.var2 + ', var3의 값=' +parsedQuery.var3);
+
 });
 
 server.listen(8080, function(){
