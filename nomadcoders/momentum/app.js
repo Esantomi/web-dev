@@ -45,3 +45,18 @@ let petNameLet = "temp";
 petNameLet = "dolbae";  // 값 업데이트
 
 console.log("we changed his name from kokam to " + petNameLet)
+
+
+// 2.4 Booleans
+true
+false
+
+null       // 해당 변수에 아무 값도 없음. 단순히 빈 게 아니라 아무것도 없는 상태가 채워진 것. 없다는 걸 확실히 하기 위해 사용함. 파이썬의 None과 같음.
+undefined  // 값이 할당되지 않음
+
+const isKokamFat = true;
+const kokamStack = null;
+let something;            // 변수 만들고 할당 X
+console.log(isKokamFat);  // true
+console.log(kokamStack)   // null
+console.log(something);   // undefined
