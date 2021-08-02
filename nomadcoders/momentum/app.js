@@ -116,3 +116,20 @@ function sayHello(){
 }
 
 sayHello();  // Hello! 출력
+
+// parameter 받기
+function sayHelloTo(nameOfPerson, job){
+    console.log("Hello, my name is " + nameOfPerson + " the " + job);
+}
+
+sayHelloTo('kokam', 'fool')   // Hello, my name is kokam the fool 출력
+sayHelloTo('kamko', 'idiot')  // Hello, my name is kamko the idiot 출력
+
+// 덧셈 계산기 만들기
+function plus(firstNumber, secondNumber){
+    console.log(firstNumber + secondNumber);
+}
+
+plus(8, 11);  // 19
+
+// 나눗셈 계산기 만들기
