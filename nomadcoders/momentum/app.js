@@ -64,13 +64,18 @@ console.log(something);   // undefined
 // 2.5 Arrays
 
 //배열 생성
-const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+console.log(daysOfWeek);
 
-//배열 접근 방법. zero-based index
-console.log(daysOfWeek[0]);  // Mon출력
-console.log(daysOfWeek[1]);  // Tue출력
-console.log(daysOfWeek[6]);  // Sun출력
+//배열 접근 방법 (zero-based index)
+console.log(daysOfWeek[0]);  // Mon 출력
+console.log(daysOfWeek[1]);  // Tue 출력
+console.log(daysOfWeek[6]);  // undefined 출력
+
+// item 추가
+daysOfWeek.push("Sun");      // 끝에 Sun 추가
+console.log(daysOfWeek[6]);  // Sun 출력
 
 //배열 값 변경
-daysOfWeek[0] = "월요일"           // Mon을 월요일로 변경
-console.log(daysOfWeek[0] = "월"); // 출력과 동시에 변경 가능
+daysOfWeek[0] = "월요일"            // Mon을 월요일로 변경
+console.log(daysOfWeek[0] = "월");  // 출력과 동시에 변경 가능
