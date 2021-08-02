@@ -104,3 +104,6 @@ console.log(player);
 // object property 추가
 player.hobby = "treadwheel"  // 새로운 property 추가
 console.log(player);
+
+
+// 2.7 Functions part One
