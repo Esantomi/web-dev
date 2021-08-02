@@ -106,4 +106,13 @@ player.hobby = "treadwheel"  // 새로운 property 추가
 console.log(player);
 
 
-// 2.7 Functions part One
+// 2.7 - 2.8 Functions
+
+/* function은 code를 capsulize해서 여러 번 실행할 수 있게 해 준다. 
+argument는 function을 실행하는 동안 특정 정보를 function에 보낼 수 있게 해 준다. */
+
+function sayHello(){
+    console.log("Hello!");
+}
+
+sayHello();  // Hello! 출력
