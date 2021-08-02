@@ -63,11 +63,11 @@ console.log(something);   // undefined
 
 // 2.5 Arrays
 
-//배열 생성
+// 배열 생성
 const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 console.log(daysOfWeek);
 
-//배열 접근 방법 (zero-based index)
+// 배열 접근 방법 (zero-based index)
 console.log(daysOfWeek[0]);  // Mon 출력
 console.log(daysOfWeek[1]);  // Tue 출력
 console.log(daysOfWeek[6]);  // undefined 출력
@@ -76,6 +76,31 @@ console.log(daysOfWeek[6]);  // undefined 출력
 daysOfWeek.push("Sun");      // 끝에 Sun 추가
 console.log(daysOfWeek[6]);  // Sun 출력
 
-//배열 값 변경
+// 배열 값 변경
 daysOfWeek[0] = "월요일"            // Mon을 월요일로 변경
 console.log(daysOfWeek[0] = "월");  // 출력과 동시에 변경 가능
+
+
+// 2.6 Objects
+
+/* object는 property를 가진 데이터를 저장하게 해 주며,
+하나의 개체(entity)가 여러 특성(properties)을 가질 때 유용하다. {}를 써서 만든다. */
+
+const player = {
+    name: "kokam",
+    points: 0,
+    fat: false,
+}
+
+console.log(player);          // player object 전체 출력
+console.log(player.name);     // kokam 출력
+console.log(player["name"]);  // kokam 출력
+
+// object의 property 값 변경
+player.fat = true;   // fat이 true로 변경됨
+player.points += 5;  // points가 5점 더해짐
+console.log(player);
+
+// object property 추가
+player.hobby = "treadwheel"  // 새로운 property 추가
+console.log(player);
