@@ -1,6 +1,5 @@
 // 2.0 Your First JS Project
-alert("hi")
-// index.html에서 <script src="app.js"></script>로 이 파일(app.js)을 끌어 쓴다.
+alert("hi")  // index.html에서 <script src="app.js"></script>로 이 파일(app.js)을 끌어 쓴다.
 
 
 // 2.1 Basic Data Types
@@ -60,3 +59,18 @@ let something;            // 변수 만들고 할당 X
 console.log(isKokamFat);  // true
 console.log(kokamStack)   // null
 console.log(something);   // undefined
+
+
+// 2.5 Arrays
+
+//배열 생성
+const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
+//배열 접근 방법. zero-based index
+console.log(daysOfWeek[0]);  // Mon출력
+console.log(daysOfWeek[1]);  // Tue출력
+console.log(daysOfWeek[6]);  // Sun출력
+
+//배열 값 변경
+daysOfWeek[0] = "월요일"           // Mon을 월요일로 변경
+console.log(daysOfWeek[0] = "월"); // 출력과 동시에 변경 가능
