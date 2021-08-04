@@ -155,3 +155,6 @@ console.log(pet.name);    // kokam
 pet.sayHello();           // hello!
 pet.sayHelloTo("dolbae")  // Hello, dolbae. I'm kokam.
 pet.sayHelloTo("salome")  // Hello, salome. I'm kokam.
+
+
+// 2.9 - 2.10 Recap
