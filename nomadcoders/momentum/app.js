@@ -169,6 +169,9 @@ const calculator = {
     minus: function(a, b){
         console.log(a - b);
     },
+    times: function(a, b){
+        console.log(a * b);
+    },
     divide: function(a, b){
         console.log(a / b);
     },
@@ -179,5 +182,9 @@ const calculator = {
 
 calculator.add(12, 8);      // 20
 calculator.minus(12, 8);    // 4
+calculator.times(12, 8);    // 96
 calculator.divide(12, 8);   // 1.5
 calculator.powerof(12, 8);  // 429981696
+
+
+// 2.11 Returns
