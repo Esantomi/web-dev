@@ -117,7 +117,7 @@ function sayHello(){
 
 sayHello();  // Hello! 출력
 
-// parameter 받기
+// parameter 받는 방법
 function sayHelloTo(nameOfPerson, job){
     console.log("Hello, my name is " + nameOfPerson + " the " + job);
 }
@@ -133,3 +133,10 @@ function plus(firstNumber, secondNumber){
 plus(8, 11);  // 19
 
 // 나눗셈 계산기 만들기
+function divide(a, b){
+    console.log(a / b);
+}
+
+divide(98, 20);  // 4.9
+
+// 위에서 만든 object인 player를 사용해 보자.
