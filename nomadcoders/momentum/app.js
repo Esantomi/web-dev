@@ -139,4 +139,19 @@ function divide(a, b){
 
 divide(98, 20);  // 4.9
 
-// 위에서 만든 object인 player를 사용해 보자.
+// object를 만들고 내부에 함수 정의
+const pet = {
+    name: "kokam",
+    sayHello: function(){
+        console.log("hello!");
+    },
+    sayHelloTo: function(otherPersonName){
+        console.log("Hello, " + otherPersonName + ". I'm kokam.");
+    }
+}
+
+// 객체.함수() 형태의 사용이 가능해진다.
+console.log(pet.name);    // kokam
+pet.sayHello();           // hello!
+pet.sayHelloTo("dolbae")  // Hello, dolbae. I'm kokam.
+pet.sayHelloTo("salome")  // Hello, salome. I'm kokam.
