@@ -72,7 +72,7 @@ console.log(daysOfWeek[0]);  // Mon 출력
 console.log(daysOfWeek[1]);  // Tue 출력
 console.log(daysOfWeek[6]);  // undefined 출력
 
-// item 추가
+// item 추가: push()
 daysOfWeek.push("Sun");      // 끝에 Sun 추가
 console.log(daysOfWeek[6]);  // Sun 출력
 
@@ -118,6 +118,8 @@ function sayHello(){
 sayHello();  // Hello! 출력
 
 // parameter 받는 방법
+/* () 안의 parameter는 실제 data(= argument)를 받으면 대체되는 place holder이다. */
+
 function sayHelloTo(nameOfPerson, job){
     console.log("Hello, my name is " + nameOfPerson + " the " + job);
 }
@@ -158,3 +160,24 @@ pet.sayHelloTo("salome")  // Hello, salome. I'm kokam.
 
 
 // 2.9 - 2.10 Recap
+
+// calculator object 만들기
+const calculator = {
+    add: function(a, b){
+        console.log(a + b);
+    },
+    minus: function(a, b){
+        console.log(a - b);
+    },
+    divide: function(a, b){
+        console.log(a / b);
+    },
+    powerof: function(a, b){
+        console.log(a ** b);
+    }
+}
+
+calculator.add(12, 8);      // 20
+calculator.minus(12, 8);    // 4
+calculator.divide(12, 8);   // 1.5
+calculator.powerof(12, 8);  // 429981696
