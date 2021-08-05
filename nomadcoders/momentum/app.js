@@ -280,11 +280,11 @@ if(isNaN(myAge)){
 
 
 // 2.15 Conditionals part Three: else if
-if (isNaN(myAge) || myAge < 0) {                   // OR operator
+if (isNaN(myAge) || myAge < 0) {
     console.log("숫자를 양수로 입력해 주세요.");   // 입력 값이 숫자가 아닐 경우 출력
 } else if (myAge < 18) {
     console.log("너무 어려서 음주는 안 돼요.");  // 입력 값이 18 미만인 경우 출력
-} else if (myAge >= 18 && age <= 50) {             // AND operator
+} else if (myAge >= 18 && myAge <= 50) {
     console.log("음주 가능한 나이예요.");    
 } else if (myAge > 50 && myAge <= 80) {
     console.log("과음은 조심하셔야겠어요.");  // 위 조건이 모두 false인 경우 출력
@@ -293,12 +293,27 @@ if (isNaN(myAge) || myAge < 0) {                   // OR operator
 }  // else는 안 써도 무방하다.
 
 // AND(&&), OR(||)
-true && true == true
-true && false == false
-false && true == false
-false && false == false
+true && true === true
+true && false === false
+false && true === false
+false && false === false
 
-true || true == true
-false || true == true
-true || false == true
-false || false == false
+true || true === true
+false || true === true
+true || false === true
+false || false === false
+
+
+// 2.16 Recap
+
+/* == 연산자와 === 연산자는 다르다!
+== : equality operator, 두 변수의 값이 동일한지 비교
+=== : strict equality operator, 두 변수의 값뿐 아니라 type도 동일한지 비교 */
+
+if (isNaN(myAge) || myAge < 0) {
+    console.log("숫자를 양수로 입력해 주세요.");
+} else if (myAge === 100) {
+    console.log("장수의 비결은 역시 음주였어!");  // 100을 입력하면 출력
+} else if (myAge >= 1) {
+    console.log("100이 아닌 양수를 입력하면 뜨는 메시지")
+}
