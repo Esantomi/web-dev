@@ -161,8 +161,8 @@ pet.sayHelloTo("salome")  // Hello, salome. I'm kokam.
 
 // 2.9 - 2.10 Recap
 
-// calculator object 만들기
-const calculator = {
+// console.log하는 calculator object 만들기
+const calculatorLog = {
     add: function(a, b){
         console.log(a + b);
     },
@@ -180,11 +180,27 @@ const calculator = {
     }
 }
 
-calculator.add(12, 8);      // 20
-calculator.minus(12, 8);    // 4
-calculator.times(12, 8);    // 96
-calculator.divide(12, 8);   // 1.5
-calculator.powerof(12, 8);  // 429981696
+calculatorLog.add(12, 8);      // 20
+calculatorLog.minus(12, 8);    // 4
+calculatorLog.times(12, 8);    // 96
+calculatorLog.divide(12, 8);   // 1.5
+calculatorLog.powerof(12, 8);  // 429981696
 
 
 // 2.11 Returns
+
+// calculator 함수는 return이 없다.
+console.log(calculatorLog.add(12, 8));  // undefined
+
+// 한국식 나이 계산기
+const age = 96;
+function calculateKrAge(ageOfForeigner){
+    "it won't be returned."
+    return ageOfForeigner + 2;  // return을 통해 함수 밖과 소통한다.
+}
+
+const krAge = calculateKrAge(age);
+console.log(krAge);                // 98
+console.log(calculateKrAge(age));  // 98
+
+// Return하는 calculator object 만들기
