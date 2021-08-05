@@ -266,4 +266,14 @@ console.log(myAge, parseInt(myAge));  // '10살'을 입력하면 '10살'과 '10'
 
 // 
 const myAge = parseInt(prompt("몇 살이야?"));
-console.log(myAge);
+console.log(myAge);  // 문자열을 입력하면 NaN 반환
+
+
+// 2.14 Conditionals part Two
+console.log(isNaN(myAge));  // isNaN()은 argument가 NaN이면 true 반환
+
+if(isNaN(myAge)){
+    console.log("숫자를 입력해 주세요.");   // 입력 값이 숫자가 아닐 경우 출력
+} else {
+    console.log("나이 입력해 줘서 감사!");  // 입력 값이 숫자일 경우 출력
+}
