@@ -163,7 +163,7 @@ pet.sayHelloTo("salome")  // Hello, salome. I'm kokam.
 
 // console.log하는 calculator object 만들기
 const calculatorLog = {
-    add: function(a, b){
+    plus: function(a, b){
         console.log(a + b);
     },
     minus: function(a, b){
@@ -180,7 +180,7 @@ const calculatorLog = {
     }
 }
 
-calculatorLog.add(12, 8);      // 20
+calculatorLog.plus(12, 8);      // 20
 calculatorLog.minus(12, 8);    // 4
 calculatorLog.times(12, 8);    // 96
 calculatorLog.divide(12, 8);   // 1.5
@@ -190,7 +190,7 @@ calculatorLog.powerof(12, 8);  // 429981696
 // 2.11 Returns
 
 // calculator 함수는 return이 없다.
-console.log(calculatorLog.add(12, 8));  // undefined
+console.log(calculatorLog.plus(12, 8));  // undefined
 
 // 한국식 나이 계산기
 const age = 96;
@@ -204,3 +204,36 @@ console.log(krAge);                // 98
 console.log(calculateKrAge(age));  // 98
 
 // Return하는 calculator object 만들기
+const calculatorReturn = {
+    plus: function(a, b){
+        return a + b;
+    },
+    minus: function(a, b){
+        return a - b;
+    },
+    times: function(a, b){
+        return a * b;
+    },
+    divide: function(a, b){
+        return a / b;
+    },
+    powerof: function(a, b){
+        return a ** b;
+    }
+}
+
+const plusResult = calculatorReturn.plus(2, 3);
+console.log(plusResult);  // 5
+
+const minusResult = calculatorReturn.minus(plusResult, 10);
+const timesResult = calculatorReturn.times(10, minusResult);
+const divideResult = calculatorReturn.divide(timesResult, plusResult);
+const powerofResult = calculatorReturn.powerof(divideResult, minusResult);
+
+console.log(minusResult);    // -5
+console.log(timesResult);    // -50
+console.log(divideResult);   // -10
+console.log(powerofResult);  // -0.0000099999...
+
+
+// 2.12 Recap
