@@ -237,3 +237,16 @@ console.log(powerofResult);  // -0.0000099999...
 
 
 // 2.12 Recap
+
+// function을 const, let 등으로 변수(variable)에 할당하면 그 변수는 function의 return을 갖게 된다.
+// 한번 return을 하면 그 시점에서 function은 종료된다.
+const calculatorTemp = {
+    plus: function(a, b){
+        console.log("you can see this.");
+        return a + b;
+        console.log("you can't see this.");
+    },
+}
+
+const plusTemp = calculatorTemp.plus(3, 4);  // you can see this.만 보인다.
+console.log(plusTemp);                       // 7
