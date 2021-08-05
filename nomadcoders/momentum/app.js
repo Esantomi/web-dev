@@ -250,3 +250,20 @@ const calculatorTemp = {
 
 const plusTemp = calculatorTemp.plus(3, 4);  // you can see this.만 보인다.
 console.log(plusTemp);                       // 7
+
+
+// 2.13 Conditionals
+
+/*
+const myAge = prompt("몇 살이야?");  // prompt는 CSS 적용이 불가해서 잘 사용하지 않는다.
+console.log(myAge);                  // 사용자에게 값을 받아 console에 log한다. 취소를 누르면 null을 log한다.
+
+// 사용자 입력 값의 type을 number로 변경
+console.log(typeof myAge);            // string 출력. 즉 prompt는 값을 string으로 받는다.
+console.log(typeof parseInt(myAge));  // number 출력. parseInt()는 정수로 바꿔 준다.
+console.log(myAge, parseInt(myAge));  // '10살'을 입력하면 '10살'과 '10'이 출력된다. 문자열만 넣으면 후자는 NaN이 뜬다.
+*/
+
+// 
+const myAge = parseInt(prompt("몇 살이야?"));
+console.log(myAge);
