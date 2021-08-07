@@ -54,3 +54,7 @@ console.log(titleQuerySelectorId);                               // <h1 id="titl
 // querySelectorAll: Selector 조건에 맞는 모든 element를 가져오는 함수 
 const titleQuerySelectorAll = document.querySelectorAll(".hello h1");
 console.log(titleQuerySelectorAll);  // NodeList(3) [h1, h1, h1]
+
+
+
+// 3.3 Events
