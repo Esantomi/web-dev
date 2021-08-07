@@ -1,4 +1,5 @@
 // 바닐라 JS로 크롬 앱 만들기
+// #3 [2021 UPDATE] JAVASCRIPT ON THE BROWSER
 // https://nomadcoders.co/javascript-for-beginners/lobby
 
 
