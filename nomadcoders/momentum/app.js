@@ -36,9 +36,13 @@ console.log(titleId.innerText);   // id로 가져왔다! 출력
 
 // 3.2 Searching For Elements
 // getElementsByClassName(): className으로 element 가져오는 함수. 한번에 여러 element를 array로 가져올 때 유용하다.
-// getElementsByTagName(): div, anchor 등의 태그 이름으로 element를 가져오는 함수
 const titlesClassName = document.getElementsByClassName("titles");
 console.log(titlesClassName);  // HTMLCollection(3) [h1.titles, h1.titles, h1.titles]
+
+
+// getElementsByTagName(): div, anchor 등의 태그 이름으로 element를 가져오는 함수
+const titlesTagName = document.getElementsByTagName("h1");
+console.log(titlesTagName);  // h1 태그 값 전부 출력
 
 
 // querySelector(): element를 CSS selector 방식으로 가져오는 함수
@@ -58,3 +62,21 @@ console.log(titleQuerySelectorAll);  // NodeList(3) [h1, h1, h1]
 
 
 // 3.3 Events
+const titleEvent = document.querySelector(".eventTest h1:first-child");  // hello 클래스 h1의 first-child
+console.log(titleEvent);  // <h1 style="color: blue;">querySelector로 가져와 보자! 1</h1> 출력
+console.dir(titleEvent);  // h1 출력
+
+// titleEvent.style.color = "blue"  // hello 클래스 h1의 글자색을 파란색으로 변경
+
+
+// event: 어떤 사건. 클릭, 엔터 등등. 이것을 listen하는 게 JS의 주요 작업이다.
+function handleTitleClick(){
+    console.log("눌렀습니다!");       // titleEvent를 누르면 '눌렀습니다!' 출력
+    titleEvent.style.color = "blue";  // click 시 글자색 파란색으로 변경
+}
+
+// addEventListenr("event", callback_function): event 감지를 추가하는 함수
+titleEvent.addEventListener("click", handleTitleClick);
+
+/* click event를 감지하는 listener를 추가하는 함수.
+JS에 function을 넘기고, 사용자가 click하면 JS가 function을 실행함 */
