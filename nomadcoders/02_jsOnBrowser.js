@@ -204,5 +204,32 @@ function handleTitleClick3() {
     }
 }
 
+/* className을 ""으로 바꿔 버리면 기존에 할당돼 있던 className(sexy-font)까지 사라진다는 문제가 있다.
+그런 문제 때문에 clickedClass에 class를 2개 할당했으나, click하면 기존 class가 사라지는 것은 변함이 없다.  */
+
 h1.addEventListener("click", handleTitleClick3);
 // JS로 직접 style.color를 변경하는 것에 비해 단순하고 역할 구분이 명확해 좋다.
+
+
+
+// // 3.8 CSS in Javascript part Three
+const h1_2 = document.querySelector("div.cssTest2 h1");
+
+function handleTitleClick4() {
+
+    // error를 줄이기 위해 clicked class를 변수에 할당 (오류 시 에러 메시지)
+    const clickedClass = "clicked";
+
+    // classList를 써서 특정 class를 포함(contain)하는지 확인
+    if (h1_2.classList.contains(clickedClass)) {
+        h1_2.classList.remove(clickedClass);
+    } else {
+        h1_2.classList.add(clickedClass);
+    }
+}
+
+/* classList의 contains(), remove(), add() method를 써서
+특정 class가 포함돼 있는지 확인하고, 있다면 제거하며, 없다면 추가하게 만들었다.
+따라서 기존에 h1_2에 할당돼 있던 sexy-font class는 계속 남아 있게 된다. */
+
+h1_2.addEventListener("click", handleTitleClick4);
