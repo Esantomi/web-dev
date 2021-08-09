@@ -108,3 +108,16 @@ titleEvent.addEventListener("mouseleave", handleMouseLeave);
 
 
 // 3.5 More Events
+
+/* Event를 사용하는 2가지 방법
+1. addEventListener("event", function);
+2. onevent = function; */
+
+// titleEvent.addEventListener("click", handleTitleClick);
+titleEvent.onclick = handleTitleClick;  // 위와 동일. 'click해서 색을 변경했습니다!' 출력
+
+// titleEvent.addEventListener("mouseenter", handleMouseEnter);
+titleEvent.onmouseenter = handleMouseEnter;  // 위와 동일
+
+// titleEvent.addEventListener("mouseleave", handleMouseLeave);
+titleEvent.onmouseleave = handleMouseLeave;  // 위와 동일
