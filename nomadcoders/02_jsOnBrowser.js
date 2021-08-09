@@ -188,16 +188,19 @@ titleEvent2.addEventListener("click", handleTitleClick2);
 // 3.7 CSS in Javascript part Two
 const h1 = document.querySelector("div.cssTest h1");  // div tag의 cssTest class의 h1 tag 가져오기
 
+// h1의 class 이름이 clicked면 공백("")으로, clicked가 아니면 clicked로 변경
 function handleTitleClick3() {
 
-    // h1의 class 이름을 active로 변경 (style.css에서 정의)
-    // h1.className = "active";
+    // h1의 class 이름을 clicked로 변경 (style.css에서 정의)
+    // h1.className = "clicked";
 
-    // h1의 class 이름이 active면 공백("")으로, active가 아니면 active로 변경
-    if (h1.className === "active") {
+    // error를 줄이기 위해 clicked class를 변수에 할당 (오류 시 에러 메시지)
+    const clickedClass = "clicked sexy-font";  // class 2개 할당
+
+    if (h1.className === clickedClass) {
         h1.className = "";
     } else {
-        h1.className = "active";
+        h1.className = clickedClass;
     }
 }
 
