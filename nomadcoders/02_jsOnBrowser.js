@@ -163,17 +163,22 @@ const titleEvent2 = document.querySelector(".eventTest2 h1");
 
 function handleTitleClick2() {
 
+    const colorNow = titleEvent2.style.color;
+    let newColor;
+
     // getter와 setter 설정
     // console.log(titleEvent2.style.color);  // 공백 출력
     // titleEvent2.style.color = "blue";
     // console.log(titleEvent2.style.color);  // blue 출력
 
     // 값이 blue면 tomato로, blue가 아니면 blue로 변경
-    if (titleEvent2.style.color === "blue") {
-        titleEvent2.style.color = "tomato";
+    if (colorNow === "blue") {
+        newColor = "tomato";
     } else {
-        titleEvent2.style.color = "blue";
+        newColor = "blue";
     }
+    titleEvent2.style.color = newColor;
 }
 
 titleEvent2.addEventListener("click", handleTitleClick2);
+// element의 style을 JS를 통해 변경하는 것은 각각의 언어의 역할이 섞인다는 점에서 안 좋을 수 있다. JS는 interaction을 위해!
