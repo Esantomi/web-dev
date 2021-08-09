@@ -111,7 +111,10 @@ titleEvent.addEventListener("mouseleave", handleMouseLeave);
 
 /* Event를 사용하는 2가지 방법
 1. addEventListener("event", function);
-2. onevent = function; */
+2. onevent = function; 
+
+removeEventListener를 통해 listener를 제거할 수도 있으므로 1번 방법이 더 선호된다. (개취)
+event를 쓰는 방법을 한마디로 도식화하면 event를 listen하고 handle하는 것이다. */
 
 // titleEvent.addEventListener("click", handleTitleClick);
 titleEvent.onclick = handleTitleClick;  // 위와 동일. 'click해서 색을 변경했습니다!' 출력
@@ -121,3 +124,32 @@ titleEvent.onmouseenter = handleMouseEnter;  // 위와 동일
 
 // titleEvent.addEventListener("mouseleave", handleMouseLeave);
 titleEvent.onmouseleave = handleMouseLeave;  // 위와 동일
+
+
+// document처럼 window도 기본적으로 제공되는 object다.
+function handleWindowResize() {
+    document.body.style.backgroundColor = "tomato";  // <body style="background-color: tomato;">로 변경 
+    console.log(document.body);                      // document(= index.html)의 <body> 내용물 출력
+}                                                    // document 내의 head, body, title 외의 element(div 등)는 querySelector 등으로 접근해야 한다.
+
+function handleWindowCopy() {
+    alert("복사!");
+}
+
+function handleWindowOffline() {
+    alert("와이파이 끊김");
+}
+
+function handleWindowOnline() {
+    alert("와이파이 연결됨");
+}
+
+// resize: window 크기 조정 event를 감지
+window.addEventListener("resize", handleWindowResize);
+
+// copy: 복사(ctrl + C) 이벤트를 감지 (clipboard event)
+window.addEventListener("copy", handleWindowCopy); 
+
+// connection events
+window.addEventListener("offline", handleWindowOffline);  // offline 이벤트 감지
+window.addEventListener("online", handleWindowOnline);    // online 이벤트 감지
