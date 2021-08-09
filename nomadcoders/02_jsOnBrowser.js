@@ -182,3 +182,24 @@ function handleTitleClick2() {
 
 titleEvent2.addEventListener("click", handleTitleClick2);
 // element의 style을 JS를 통해 변경하는 것은 각각의 언어의 역할이 섞인다는 점에서 안 좋을 수 있다. JS는 interaction을 위해!
+
+
+
+// 3.7 CSS in Javascript part Two
+const h1 = document.querySelector("div.cssTest h1");  // div tag의 cssTest class의 h1 tag 가져오기
+
+function handleTitleClick3() {
+
+    // h1의 class 이름을 active로 변경 (style.css에서 정의)
+    // h1.className = "active";
+
+    // h1의 class 이름이 active면 공백("")으로, active가 아니면 active로 변경
+    if (h1.className === "active") {
+        h1.className = "";
+    } else {
+        h1.className = "active";
+    }
+}
+
+h1.addEventListener("click", handleTitleClick3);
+// JS로 직접 style.color를 변경하는 것에 비해 단순하고 역할 구분이 명확해 좋다.

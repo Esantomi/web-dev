@@ -1,0 +1,13 @@
+body {
+    background-color: beige;
+}
+
+h2 {
+    color: cornflowerblue;
+}
+
+/* CSS class 만드는 방법.
+active라는 class를 만듦. 이 class를 element에 지정하면 tomato 색이 된다. */
+.active {
+    color: tomato;
+}
