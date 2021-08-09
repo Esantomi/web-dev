@@ -63,9 +63,9 @@ console.log(titleQuerySelectorAll);  // NodeList(3) [h1, h1, h1] 출력
 
 
 // 3.3 Events
-const titleEvent = document.querySelector(".eventTest h1:first-child");  // hello 클래스 h1의 first-child
-console.log(titleEvent);  // <h1>누르면 파란색으로 바뀌어요!</h1> 출력
-console.dir(titleEvent);  // h1 출력
+const titleEvent = document.querySelector(".eventTest h1:first-child");  // eventTest 클래스 h1의 first-child
+console.log(titleEvent);                                                 // <h1>누르면 파란색으로 바뀌어요!</h1> 출력
+console.dir(titleEvent);                                                 // h1 출력
 
 // titleEvent.style.color = "blue"  // hello 클래스 h1의 글자색을 파란색으로 변경
 
@@ -76,7 +76,7 @@ function handleTitleClick(){
 }
 
 // addEventListenr("event", callback_function): event 감지를 추가하는 함수
-titleEvent.addEventListener("click", handleTitleClick);  // onclick property
+titleEvent.addEventListener("click", handleTitleClick);  // onclick property: 마우스 클릭 감지
 
 /* click event를 감지하는 listener를 추가하는 함수.
 JS에 function을 넘기고, 사용자가 click하면 JS가 function을 실행함 */
@@ -104,3 +104,7 @@ titleEvent.addEventListener("mouseleave", handleMouseLeave);
 
 /* 즉 JS로 HTML element를 가져와서(querySelector) 거기에 eventlistener를 추가해 준 것이다.
 그러면 특정 event가 발생하면 listener가 캐치해서 특정 function이 수행되게 해 준다. */
+
+
+
+// 3.5 More Events
