@@ -117,7 +117,7 @@ removeEventListener를 통해 listener를 제거할 수도 있으므로 1번 방
 event를 쓰는 방법을 한마디로 도식화하면 event를 listen하고 handle하는 것이다. */
 
 // titleEvent.addEventListener("click", handleTitleClick);
-titleEvent.onclick = handleTitleClick;  // 위와 동일. 'click해서 색을 변경했습니다!' 출력
+// titleEvent.onclick = handleTitleClick;  // 위와 동일. 'click해서 색을 변경했습니다!' 출력
 
 // titleEvent.addEventListener("mouseenter", handleMouseEnter);
 titleEvent.onmouseenter = handleMouseEnter;  // 위와 동일
@@ -153,3 +153,27 @@ window.addEventListener("copy", handleWindowCopy);
 // connection events
 window.addEventListener("offline", handleWindowOffline);  // offline 이벤트 감지
 window.addEventListener("online", handleWindowOnline);    // online 이벤트 감지
+
+
+
+// 3.6 CSS in Javascript
+
+// click에 따라 blue, tomato, blue, tomato ... 로 바뀌게 하기
+const titleEvent2 = document.querySelector(".eventTest2 h1");
+
+function handleTitleClick2() {
+
+    // getter와 setter 설정
+    // console.log(titleEvent2.style.color);  // 공백 출력
+    // titleEvent2.style.color = "blue";
+    // console.log(titleEvent2.style.color);  // blue 출력
+
+    // 값이 blue면 tomato로, blue가 아니면 blue로 변경
+    if (titleEvent2.style.color === "blue") {
+        titleEvent2.style.color = "tomato";
+    } else {
+        titleEvent2.style.color = "blue";
+    }
+}
+
+titleEvent2.addEventListener("click", handleTitleClick2);
