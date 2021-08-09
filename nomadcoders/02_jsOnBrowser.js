@@ -194,7 +194,7 @@ function handleTitleClick3() {
     // h1의 class 이름을 clicked로 변경 (style.css에서 정의)
     // h1.className = "clicked";
 
-    // error를 줄이기 위해 clicked class를 변수에 할당 (오류 시 에러 메시지)
+    // error를 줄이기 위해 CSS의 clicked class를 변수에 할당 (오류 시 에러 메시지)
     const clickedClass = "clicked sexy-font";  // class 2개 할당
 
     if (h1.className === clickedClass) {
@@ -213,14 +213,16 @@ h1.addEventListener("click", handleTitleClick3);
 
 
 // // 3.8 CSS in Javascript part Three
+
+// classList: contains, remove, add
 const h1_2 = document.querySelector("div.cssTest2 h1");
 
 function handleTitleClick4() {
 
-    // error를 줄이기 위해 clicked class를 변수에 할당 (오류 시 에러 메시지)
+    // error를 줄이기 위해 CSS의 clicked class를 변수에 할당 (오류 시 에러 메시지)
     const clickedClass = "clicked";
 
-    // classList를 써서 특정 class를 포함(contain)하는지 확인
+    // classList를 써서 특정 class를 포함(contain)하는지 확인: toggle()을 쓰면 더 간편하다!
     if (h1_2.classList.contains(clickedClass)) {
         h1_2.classList.remove(clickedClass);
     } else {
@@ -233,3 +235,18 @@ function handleTitleClick4() {
 따라서 기존에 h1_2에 할당돼 있던 sexy-font class는 계속 남아 있게 된다. */
 
 h1_2.addEventListener("click", handleTitleClick4);
+
+
+// classList.toggle
+const h1_3 = document.querySelector("div.cssTest3 h1");
+
+function handleTitleClick5() {
+    // toggle은 classList에 특정 class가 있는지 확인해서 있으면 제거, 없으면 추가해 준다.
+    h1_3.classList.toggle("clicked");
+}
+
+// h1에서 if문을 써서, h2에서 contains, remove, add를 써서 해결했던 것을 toggle로는 1줄에 해결했다.
+
+h1_3.addEventListener("click", handleTitleClick5);
+
+// className -> classList의 contains, remove, add -> classList의 toggle로 해결!
