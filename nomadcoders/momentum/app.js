@@ -29,8 +29,10 @@ loginButton.addEventListener("click", handleLoginBtnClick);
 
 // 4.1 From submission
 function handleLoginBtnClick() {
-    const value = loginInput.value;
-    if (value === "") {
-        console.log("이름 입력하고 눌러 주세요.");
+    const username = loginInput.value;
+    if (username === "") {
+        alert("이름 입력하고 눌러 주세요.");
+    } else if (username.length > 15) {  // 문자열 길이
+        alert("이름이 너무 길어요.");
     }
 }
