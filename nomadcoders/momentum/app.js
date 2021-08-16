@@ -27,7 +27,7 @@ const loginButton2 = document.querySelector("#login-form button");
 loginButton.addEventListener("click", handleLoginBtnClick);
 
 
-// 4.1 From submission
+// 4.1 Form submission
 function handleLoginBtnClick() {
     const username = loginInput.value;
     console.log("임시")
@@ -37,3 +37,6 @@ function handleLoginBtnClick() {
     //     alert("이름이 너무 길어요.");
     // }
 }
+
+
+// 4.2 Events
