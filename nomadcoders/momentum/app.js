@@ -17,11 +17,20 @@ const loginInput2 = document.querySelector("#login-form input");
 const loginButton2 = document.querySelector("#login-form button");
 
 // 로그인 버튼 handler 설정 (loginInput의 value 출력)
-function handleLoginBtnClick() {
-    // console.dir(loginInput);             // loginInput object의 속성(property)을 계층 구조로 출력.
-    console.log("안녕", loginInput.value);  // 기본적으로 value: "". 입력하고 click하면 입력 값을 value로 출력.
-    // console.log("눌렀다!");
-}
+// function handleLoginBtnClick() {
+//     // console.dir(loginInput);             // loginInput object의 속성(property)을 계층 구조로 출력
+//     // console.log("눌렀다!");
+//     console.log("안녕", loginInput.value);  // 기본적으로 value: ""임. 텍스트 박스에 입력하고 click하면 입력 값을 value로 출력
+// }
 
 // 로그인 버튼 listener 설정
 loginButton.addEventListener("click", handleLoginBtnClick);
+
+
+// 4.1 From submission
+function handleLoginBtnClick() {
+    const value = loginInput.value;
+    if (value === "") {
+        console.log("이름 입력하고 눌러 주세요.");
+    }
+}
