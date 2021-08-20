@@ -2,6 +2,7 @@
 // https://nomadcoders.co/javascript-for-beginners/lobby
 
 
+
 // 4 [2021 UPDATE] LOGIN
 
 // 4.0 Input Values
@@ -27,6 +28,7 @@ const loginButton2 = document.querySelector("#login-form button");
 // loginButton.addEventListener("click", handleLoginBtnClick);
 
 
+
 // 4.1 Form submission
 function handleLoginBtnClick() {
     const username = loginInput.value;
@@ -41,6 +43,7 @@ function handleLoginBtnClick() {
 /* index.html에서 <form> 태그의 required, maxlength 등의 속성을 사용해 if문을 대신해 주었다.
 하지만 submit이 되면 페이지가 새로고침이 되는 문제가 남아 있다. (브라우저는 새로고침 후 form을 submit함)
 이후 이러한 default 새로고침이 발생되지 않게끔 예방해 줘야 한다. */
+
 
 
 // 4.2 Events
@@ -63,6 +66,7 @@ SubmitEvent {isTrusted: true, submitter: button, type: "submit", target: form#l
 이 object를 통해 뭐가 클릭됐는지, 누가 submit했는지 등의 정보를 조회하고 이용할 수 있다. */
 
 
+
 // 4.3 Events part Two
 const link = document.querySelector("a");
 
@@ -75,6 +79,7 @@ function handleLinkClick(event) {
 }
 
 link.addEventListener("click", handleLinkClick);
+
 
 
 // 4.4 Getting Username
@@ -97,6 +102,7 @@ function onLoginSubmit_temp2(event) {
 // loginForm.addEventListener("submit", onLoginSubmit_temp2);
 
 
+
 // 4.5 Saving Username
 
 /* localStorage: 브라우저에 값을 저장하기 위한 API
@@ -104,9 +110,9 @@ function onLoginSubmit_temp2(event) {
 API: https://developer.mozilla.org/ko/docs/Web/API/Window/localStorage */
 
 console.log(localStorage);                  // 이미 정의돼 있음
-localStorage.setItem("username", "kokam");  // 저장 (key, value)
-localStorage.getItem("username");           // 호출
-localStorage.removeItem("username");        // 제거
+// localStorage.setItem("username", "kokam");  // 저장 (key, value)
+// localStorage.getItem("username");           // 호출
+// localStorage.removeItem("username");        // 제거
 // local storage는 웹 환경의 미니 DB 같은 것이다.
 
 // 사용자가 입력한 username을 local storage에 저장하기
@@ -117,11 +123,42 @@ function onLoginSubmit(event) {
     const username = loginInput.value;
     localStorage.setItem("username", username);  // username 변수를 "username"을 key로 하여 저장
 
+    // 이 부분은 반복되므로 4.6 부분에서 paintGreetings()로 함수화함
     greeting.innerText = `안녕하세요 ${username} 님`;
     greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
-loginForm.addEventListener("submit", onLoginSubmit);
+// loginForm.addEventListener("submit", onLoginSubmit);  // 아래 if문에서 listen
+
 
 
 // 4.6 Loading Username
+/* local storage가 비어 있으면 form을 보여 주고, user 정보가 이미 있으면 대신 h1을 보여 줘야 한다.
+이때 새로고침 등을 하더라도 한번 입력한 user 정보가 계속 유지될 수 있어야 한다. */
+
+// local storage 유저 정보 유무 확인
+const USERNAME_KEY = "username"  // 반복해서 쓰는 문자열이므로 변수 할당. 단순 string이므로 변수명 대문자
+
+// console.log(localStorage.getItem("username"));          // null 출력
+const savedUsername = localStorage.getItem(USERNAME_KEY);  // string과 달리 변수명이 틀리면 JS console에서 알려줌
+console.log(savedUsername);
+
+// 4.5의 onLoginSubmit 함수와 아래 if문에서 반복되므로 함수화
+function paintingGreetings(username) {
+    greeting.innerText = `안녕하세요 ${username} 님`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
+// 이때 html의 <form>과 <h1>이 모두 hidden class여야 한다.
+if (savedUsername === null) {  // if (!savedUsername)으로 써도 된다.
+    // user 정보가 없으므로 form 보이기
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", onLoginSubmit);
+} else {
+    // user 정보가 있으므로 h2 보이기
+    paintingGreetings(savedUsername);
+}  // 새로고침해도 local storage에 username이 남아 있으므로 h1을 보여 준다.
+
+
+
+// 4.7 Super Recap
