@@ -24,7 +24,7 @@ const loginButton2 = document.querySelector("#login-form button");
 // }
 
 // 로그인 버튼 listener 설정
-loginButton.addEventListener("click", handleLoginBtnClick);
+// loginButton.addEventListener("click", handleLoginBtnClick);
 
 
 // 4.1 Form submission
@@ -47,18 +47,33 @@ function handleLoginBtnClick() {
 // 버튼 click이 아닌, submit 자체를 listen할 수 있어야 한다. (submit은 click 말고 enter를 눌러도 발생함)
 loginForm.addEventListener("submit", onLoginSubmit);  // submit을 listen. loginForm은 위에서 정의했다.
 
-function onLoginSubmit(event) {        // submit event 감지 후 실행
-    event.preventDefault();            // default behavior 발생 방지 함수 (submit의 경우는 새로고침)
-    console.log(event);                // 브라우저가 넘겨 주는 정보(함수 argument) 출력
+function onLoginSubmit(event) {         // submit event 감지 후 실행
+    event.preventDefault();             // event 안에 있는 default behavior 방지 함수 (submit의 경우는 새로고침)
+    console.log(event);                 // 브라우저가 넘겨 주는 정보(함수 argument) 출력
     const username = loginInput.value;  // 입력 값을 username에 할당
     console.log(username);              // username을 콘솔 로그
-}                                       // event가 발생하면 브라우저가 function을 (패러미터를 가진 채) 호출
+}                                       // event가 발생하면 브라우저가 function을 (event object를 가진 채) 호출
 
 /* 콘솔 로그 결과는 아래와 같다. (이는 방금 실행된 event에 대한 정보다.)
 SubmitEvent {isTrusted: true, submitter: button, type: "submit", target: form#login-form, currentTarget: form#login-form, …}
 
 이는 event라는 임의의(다른 이름 가능) argument를 설정해 두면 JS가 방금 일어난 event에 대한 정보를 argument에 할당하기 때문이다.
-그러면 onLoginSubmit 함수가 그 argument(= event object)를 JS로 넘겨 주게 된다. */
+그러면 JS는 onLoginSubmit 함수를 실행시키는 동시에 함수의 첫 번째 argument에 event object를 할당해 주게 된다.
+이 object를 통해 뭐가 클릭됐는지, 누가 submit했는지 등의 정보를 조회하고 이용할 수 있다. */
 
 
 // 4.3 Events part Two
+const link = document.querySelector("a");
+
+// 링크 눌러도 페이지로 이동 안 되게 방지
+function handleLinkClick(event) {
+    event.preventDefault();  // event object의 defaultPrevented를 true로 변경
+    console.log(event);      // PointerEvent 또는 MouseEvent 로그
+    console.dir(event);      // event의 세부 내용 로그
+    // alert("alert 덕에 멈추나 확인 누르면 default behavior 실행됨");
+}
+
+link.addEventListener("click", handleLinkClick);
+
+
+// 4.4 Getting Username

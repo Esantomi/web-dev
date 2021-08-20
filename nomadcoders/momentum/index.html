@@ -14,10 +14,10 @@
     <!-- <div id="login-form">  id로 값들을 찾기 위함 -->
     <form id="login-form"> 
 
-    <!--input 유효성 검사를 위해서는 input이 from 안에 있어야 한다.
+    <!--input 유효성 검사를 위해서는 input이 form 안에 있어야 한다.
     즉, 필수 입력, 최대 길이 등 HTML의 도움을 받으려면 form을 활용해야 한다.
     input을 form 안에 넣으면, 입력 후 엔터만 눌러도 form이 자동적으로 submit된다.
-    form이 submit되면 페이지는 새로고침이 되기 때문에 이에 주의해야 한다.-->
+    form이 submit되면 페이지는 자동으로 새로고침이 되기 때문에 이에 주의해야 한다.-->
 
         <!--input(입력 창), required(필수 입력), maxlength(최대 길이), placeholder(안내 텍스트)-->
         <input 
@@ -26,10 +26,11 @@
             type="text" 
             placeholder="이름이 뭐예요?" 
         />
-        <!-- <input type="submit" value="Log In" /> -->
-        <button>로그인</button>
+        <input type="submit" value="로그인" />  <!--submit을 감지하는 로그인 버튼-->
+        <!-- <button>로그인</button> -->
     <!-- </div> -->
     </form> 
+    <a href="https://haechandeo.me">내 블로그 가기</a>  <!--link의 default behavior는 페이지 이동이다.-->
 
     <!--JS 파일은 주로 맨 아래에서 불러온다.-->
     <script src="app.js"></script>
