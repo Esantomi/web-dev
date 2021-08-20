@@ -30,7 +30,7 @@ loginButton.addEventListener("click", handleLoginBtnClick);
 // 4.1 Form submission
 function handleLoginBtnClick() {
     const username = loginInput.value;
-    console.log("임시")
+    console.log("임시");
     // if (username === "") {
     //     alert("이름 입력하고 눌러 주세요.");
     // } else if (username.length > 15) {  // 문자열 길이
@@ -38,5 +38,15 @@ function handleLoginBtnClick() {
     // }
 }
 
+// index.html에서 <form> 태그의 required, maxlength 등의 속성을 사용해 if문을 대신해 주었다.
+// 하지만 submit이 되면 페이지가 새로고침이 되는 문제가 남아 있다. (브라우저는 새로고침 후 form을 submit함)
+
 
 // 4.2 Events
+// 버튼 click이 아닌, submit 자체를 listen할 수 있어야 한다. (submit은 click 말고 enter를 눌러도 발생함)
+loginForm.addEventListener("submit", onLoginSubmit);  // loginForm은 위에서 정의했다.
+
+function onLoginSubmit() {              // submit event 감지 후 실행
+    const username = loginInput.value;  // 입력 값을 username에 할당
+    console.log(username);              // username을 콘솔 로그
+}
