@@ -116,19 +116,18 @@ console.log(localStorage);                  // 이미 정의돼 있음
 // local storage는 웹 환경의 미니 DB 같은 것이다.
 
 // 사용자가 입력한 username을 local storage에 저장하기
-function onLoginSubmit(event) {
+function onLoginSubmit_temp3(event) {
     event.preventDefault();
     loginForm.classList.add(HIDDEN_CLASSNAME);
 
     const username = loginInput.value;
     localStorage.setItem("username", username);  // username 변수를 "username"을 key로 하여 저장
 
-    // 이 부분은 반복되므로 4.6 부분에서 paintGreetings()로 함수화함
     greeting.innerText = `안녕하세요 ${username} 님`;
     greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
-// loginForm.addEventListener("submit", onLoginSubmit);  // 아래 if문에서 listen
+// loginForm.addEventListener("submit", onLoginSubmit_temp3);  // 아래 if문에서 listen
 
 
 
@@ -143,7 +142,18 @@ const USERNAME_KEY = "username"  // 반복해서 쓰는 문자열이므로 변�
 const savedUsername = localStorage.getItem(USERNAME_KEY);  // string과 달리 변수명이 틀리면 JS console에서 알려줌
 console.log(savedUsername);
 
-// 4.5의 onLoginSubmit 함수와 아래 if문에서 반복되므로 함수화
+function onLoginSubmit(event) {
+    event.preventDefault();
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+
+    const username = loginInput.value;
+    localStorage.setItem(USERNAME_KEY, username);  // username 변수를 "username"을 key로 하여 저장
+
+    // 이 부분은 반복되므로 아래에서 paintGreetings()로 함수화함
+    paintingGreetings(username);
+}
+
+// onLoginSubmit 함수와 아래 if문에서 반복되므로 함수화
 function paintingGreetings(username) {
     greeting.innerText = `안녕하세요 ${username} 님`;
     greeting.classList.remove(HIDDEN_CLASSNAME);
