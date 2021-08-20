@@ -113,7 +113,7 @@ console.log(localStorage);                  // 이미 정의돼 있음
 // localStorage.setItem("username", "kokam");  // 저장 (key, value)
 // localStorage.getItem("username");           // 호출
 // localStorage.removeItem("username");        // 제거
-// local storage는 웹 환경의 미니 DB 같은 것이다.
+// local storage는 브라우저의 미니 DB 같은 API이다.
 
 // 사용자가 입력한 username을 local storage에 저장하기
 function onLoginSubmit_temp3(event) {
@@ -138,7 +138,7 @@ function onLoginSubmit_temp3(event) {
 // local storage 유저 정보 유무 확인
 const USERNAME_KEY = "username"  // 반복해서 쓰는 문자열이므로 변수 할당. 단순 string이므로 변수명 대문자
 
-// console.log(localStorage.getItem("username"));          // null 출력
+// console.log(localStorage.getItem("username"));          // 값이 없으면 null 출력
 const savedUsername = localStorage.getItem(USERNAME_KEY);  // string과 달리 변수명이 틀리면 JS console에서 알려줌
 console.log(savedUsername);
 
@@ -147,7 +147,7 @@ function onLoginSubmit(event) {
     loginForm.classList.add(HIDDEN_CLASSNAME);
 
     const username = loginInput.value;
-    localStorage.setItem(USERNAME_KEY, username);  // "username"을 할당한 변수를 key로 넣어 주기
+    localStorage.setItem(USERNAME_KEY, username);  // "username"을 할당한 변수를 key로 하여 local storage에 저장
 
     // 이 부분은 반복되므로 아래에서 paintGreetings()로 함수화함
     paintingGreetings(username);
@@ -166,9 +166,35 @@ if (savedUsername === null) {  // if (!savedUsername)으로 써도 된다.
     loginForm.addEventListener("submit", onLoginSubmit);
 } else {
     // user 정보가 있으므로 h2 보이기
-    paintingGreetings(savedUsername);
-}  // 새로고침해도 local storage에 username이 남아 있으므로 h1을 보여 준다.
+    paintingGreetings(savedUsername);  // paintGreetings()는 input이 아닌 local storage에서 user 정보를 받는다.
+}                                      // 새로고침해도 local storage에 username이 남아 있으므로 h1을 보여 준다.
 
 
 
 // 4.7 Super Recap
+// paintGreetings() 함수에 parameter 안 넣어 줘도 되는 방법
+
+function paintingGreetings() {                            // argument 없음
+    const username = localStorage.getItem(USERNAME_KEY);  // 대신 local storage에서 값을 찾아 username에 할당
+    greeting.innerText = `안녕하세요 ${username} 님`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
+function onLoginSubmit(event) {
+    event.preventDefault();
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+
+    // const username = loginInput.value;                  // 바로 아래 setItem의 value에 대입
+    localStorage.setItem(USERNAME_KEY, loginInput.value);  // 값 username -> loginInput.value
+
+    paintingGreetings();  // parameter 없음
+}
+
+if (savedUsername === null) {
+    // user 정보가 없으므로 form 보이기
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", onLoginSubmit);
+} else {
+    // user 정보가 있으므로 h2 보이기
+    paintingGreetings();  // parameter 없음
+}
