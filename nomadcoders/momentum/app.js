@@ -45,9 +45,10 @@ function handleLoginBtnClick() {
 
 // 4.2 Events
 // 버튼 click이 아닌, submit 자체를 listen할 수 있어야 한다. (submit은 click 말고 enter를 눌러도 발생함)
-loginForm.addEventListener("submit", onLoginSubmit);  // submit을 listen. loginForm은 위에서 정의했다.
 
-function onLoginSubmit(event) {         // submit event 감지 후 실행
+// loginForm.addEventListener("submit", onLoginSubmit_temp);  // submit을 listen. loginForm은 위에서 정의했다.
+
+function onLoginSubmit_temp(event) {    // submit event 감지 후 실행
     event.preventDefault();             // event 안에 있는 default behavior 방지 함수 (submit의 경우는 새로고침)
     console.log(event);                 // 브라우저가 넘겨 주는 정보(함수 argument) 출력
     const username = loginInput.value;  // 입력 값을 username에 할당
@@ -77,3 +78,18 @@ link.addEventListener("click", handleLinkClick);
 
 
 // 4.4 Getting Username
+const greeting = document.querySelector("#greeting");  // html의 id="greeting" 할당
+const HIDDEN_CLASSNAME = "hidden";       // hidden class 할당. string만 포함된, 중요치 않은 변수는 대문자로 쓰는 관습. 
+
+// submit되면 loginForm 숨기고 h1 드러내기
+function onLoginSubmit(event) {
+    event.preventDefault();                     // 새로고침 방지
+    loginForm.classList.add(HIDDEN_CLASSNAME);  // loginForm에 CSS의 hidden class 추가
+    const username = loginInput.value;          // 입력 값 받아서 저장
+    // console.log(username);
+    // greeting.innerText = "안녕하세요 " + username + " 님";  // 받은 입력 값(+ 텍스트)을 id="greeting" 내부 텍스트로 할당
+    greeting.innerText = `안녕하세요 ${username} 님`;       // string과 변수를 합치는 더 편한 방법. ${변수명}
+    greeting.classList.remove(HIDDEN_CLASSNAME);            // id="greeting" 요소의 hidden class 제거
+}
+
+loginForm.addEventListener("submit", onLoginSubmit);
