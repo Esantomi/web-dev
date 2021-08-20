@@ -46,14 +46,14 @@ function handleLoginBtnClick() {
 // 4.2 Events
 // 버튼 click이 아닌, submit 자체를 listen할 수 있어야 한다. (submit은 click 말고 enter를 눌러도 발생함)
 
-// loginForm.addEventListener("submit", onLoginSubmit_temp);  // submit을 listen. loginForm은 위에서 정의했다.
-
 function onLoginSubmit_temp(event) {    // submit event 감지 후 실행
     event.preventDefault();             // event 안에 있는 default behavior 방지 함수 (submit의 경우는 새로고침)
     console.log(event);                 // 브라우저가 넘겨 주는 정보(함수 argument) 출력
     const username = loginInput.value;  // 입력 값을 username에 할당
     console.log(username);              // username을 콘솔 로그
 }                                       // event가 발생하면 브라우저가 function을 (event object를 가진 채) 호출
+
+// loginForm.addEventListener("submit", onLoginSubmit_temp);  // submit을 listen. loginForm은 위에서 정의했다.
 
 /* 콘솔 로그 결과는 아래와 같다. (이는 방금 실행된 event에 대한 정보다.)
 SubmitEvent {isTrusted: true, submitter: button, type: "submit", target: form#login-form, currentTarget: form#login-form, …}
@@ -82,14 +82,46 @@ const greeting = document.querySelector("#greeting");  // html의 id="greeting" 
 const HIDDEN_CLASSNAME = "hidden";       // hidden class 할당. string만 포함된, 중요치 않은 변수는 대문자로 쓰는 관습. 
 
 // submit되면 loginForm 숨기고 h1 드러내기
-function onLoginSubmit(event) {
+function onLoginSubmit_temp2(event) {
     event.preventDefault();                     // 새로고침 방지
     loginForm.classList.add(HIDDEN_CLASSNAME);  // loginForm에 CSS의 hidden class 추가
+
     const username = loginInput.value;          // 입력 값 받아서 저장
     // console.log(username);
+
     // greeting.innerText = "안녕하세요 " + username + " 님";  // 받은 입력 값(+ 텍스트)을 id="greeting" 내부 텍스트로 할당
     greeting.innerText = `안녕하세요 ${username} 님`;       // string과 변수를 합치는 더 편한 방법. ${변수명}
     greeting.classList.remove(HIDDEN_CLASSNAME);            // id="greeting" 요소의 hidden class 제거
 }
 
+// loginForm.addEventListener("submit", onLoginSubmit_temp2);
+
+
+// 4.5 Saving Username
+
+/* localStorage: 브라우저에 값을 저장하기 위한 API
+개발자 도구 - Application - Storage - Local Storage로 접근이 가능하다.
+API: https://developer.mozilla.org/ko/docs/Web/API/Window/localStorage */
+
+console.log(localStorage);                  // 이미 정의돼 있음
+localStorage.setItem("username", "kokam");  // 저장 (key, value)
+localStorage.getItem("username");           // 호출
+localStorage.removeItem("username");        // 제거
+// local storage는 웹 환경의 미니 DB 같은 것이다.
+
+// 사용자가 입력한 username을 local storage에 저장하기
+function onLoginSubmit(event) {
+    event.preventDefault();
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+
+    const username = loginInput.value;
+    localStorage.setItem("username", username);  // username 변수를 "username"을 key로 하여 저장
+
+    greeting.innerText = `안녕하세요 ${username} 님`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
 loginForm.addEventListener("submit", onLoginSubmit);
+
+
+// 4.6 Loading Username
