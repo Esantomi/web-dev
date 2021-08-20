@@ -147,7 +147,7 @@ function onLoginSubmit(event) {
     loginForm.classList.add(HIDDEN_CLASSNAME);
 
     const username = loginInput.value;
-    localStorage.setItem(USERNAME_KEY, username);  // username 변수를 "username"을 key로 하여 저장
+    localStorage.setItem(USERNAME_KEY, username);  // "username"을 할당한 변수를 key로 넣어 주기
 
     // 이 부분은 반복되므로 아래에서 paintGreetings()로 함수화함
     paintingGreetings(username);
