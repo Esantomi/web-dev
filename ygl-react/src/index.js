@@ -6,13 +6,14 @@ import Test from './Test';  // 테스트용
 import reportWebVitals from './reportWebVitals';
 
 // 렌더링
+// <Test /> 추가
 ReactDOM.render(
   <React.StrictMode>
     <App />
     <Test />
   </React.StrictMode>,
   document.getElementById('root')
-);  // <Test /> 추가
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

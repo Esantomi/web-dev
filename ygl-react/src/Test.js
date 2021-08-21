@@ -1,5 +1,5 @@
-// App.js 전체 복붙
-// index.js의 ReactDOM.render()에 <Test /> 추가
+/* App.js 소스 코드 전체 복붙
+index.js의 ReactDOM.render()에 <Test /> 추가 */
 
 import logo from './logo.svg';
 import './App.css';
