@@ -8,7 +8,7 @@ function Table() {
                 border="1"
                 width="20%"
                 height="100"
-                cellspacing="3">
+                cellSpacing="3">
                 <thead></thead>
                 <tbody>
                     <tr>

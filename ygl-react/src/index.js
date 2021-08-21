@@ -12,14 +12,12 @@ import Image from './Components/Image/Image';  // Image.js 가져오기
 ReactDOM.render(
   <React.StrictMode>
     {/* Test, Table, Example, Image 추가 */}
-    <div>
-      <Test />
-      <Table />
-      <Table />
-      <Example />
-      <Image />
-      <App />
-    </div>
+    <Test />
+    <Table />
+    <Table />
+    <Example />
+    <Image />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
