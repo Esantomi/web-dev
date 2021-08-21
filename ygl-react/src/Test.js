@@ -1,28 +1,13 @@
-/* App.js 소스 코드 전체 복붙
-index.js의 ReactDOM.render()에 <Test /> 추가 */
+// index.js의 ReactDOM.render()에 <Test /> 추가
 
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function Test() {  // App -> Test로 변경
+function Test() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <p>
+      <h1>Test.js의 Test 함수 리턴입니다.</h1>
+    </p>
   );
 }
 
-export default Test;  // App -> Test로 변경
+export default Test;  // index.js로 export
