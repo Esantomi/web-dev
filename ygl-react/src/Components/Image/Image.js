@@ -30,6 +30,7 @@ function Pet(props) {
         <div>
             <h1>{pets.map(petname)}</h1>
             <img src={pets.map(petimage)} width="300" height="300"></img>
+            <img src={pets.map(petimage)} width="300" height="300"></img>
 
             {/* <h1>{props.name + "입니다."}</h1>
             <h2>{props.age + "살입니다."}</h2>
