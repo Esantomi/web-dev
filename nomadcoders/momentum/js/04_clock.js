@@ -18,3 +18,8 @@ setInterval(sayHello, 5000);  // 5초마다 콘솔에 Hello 출력
 
 
 // 5.1 Timemouts and Dates
+// Timeout : 특정 시각 이후 발생
+
+// Timeout 설정 (반복할 함수명, 시간 간격(ms))
+setTimeout(sayHello, 5000);  // 5초 후에 콘솔에 Hello 1번 출력
+
