@@ -82,6 +82,6 @@ console.log(quotes[Math.floor(Math.random() * quotes.length)]);
 // 0~quotes 길이 사이의 quotes array element를 무작위로 반환하는 문장을 변수에 할당
 const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
-// HTMLdp quote, author 넣어 주기
+// HTML에 quote, author 넣어 주기
 quote.innerText = todaysQuote.quote;
 author.innerText = todaysQuote.author;
