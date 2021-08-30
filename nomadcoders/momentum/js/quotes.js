@@ -70,7 +70,14 @@ console.log(Math.floor(2.9));   // 2. 버림
 // 0부터 9 사이의 숫자를 무작위로 반환하는 함수
 console.log(Math.floor(Math.random() * 10));
 
-// quotes array의 0~9 element를 무작위로 출력하는 함수
-console.log(quotes[Math.floor(Math.random() * 10)]);
+// quotes array의 0~9 element를 무작위로 출력
+console.log(quotes[Math.floor(Math.random() * 10)]);  // 10을 쓴 건 소스 코드에 데이터를 직접 입력하는 '하드 코딩'이라 유지 보수가 번거롭다.
 
-// 10을 쓴 건 소스 코드에 데이터를 직접 입력하는 '하드 코딩'이라 유지 보수가 번거롭다.
+// [].length : array의 길이 반환
+console.log([1,2,3,4,5,6,7].length);  // 7
+
+// length를 활용해 10을 대체한 문장
+console.log(quotes[Math.floor(Math.random() * quotes.length)]);
+
+// 0~quotes 길이 사이의 quotes array element를 무작위로 반환하는 문장을 변수에 할당
+const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
