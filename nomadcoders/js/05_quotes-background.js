@@ -2,6 +2,7 @@
 // https://nomadcoders.co/javascript-for-beginners/lobby
 
 
+// 6.0 Quotes
 // quotes array 선언
 const quotes = [
     {
@@ -84,4 +85,25 @@ const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
 // HTML에 quote, author 넣어 주기
 quote.innerText = todaysQuote.quote;
-author.innerText = todaysQuote.author;4
+author.innerText = todaysQuote.author;
+
+
+// 6.1 Background
+const images = [
+    "0.jpg",
+    "1.jpg",
+    "2.jpg"
+]
+
+const chosenImage = images[Math.floor(Math.random() * images.length)];
+// console.log(chosenImage);  // images 요소 셋 중 하나 출력
+
+// document.createElement() : html element 생성
+const bgImage = document.createElement("img");
+// console.log(bgImage);  // img 객체(=== <img>) 출력 
+
+bgImage.src = `img/${chosenImage}`;
+// console.log(bgImage);  // <img src="img/*.jpg">
+
+// appendChild() : html에 js로 작성한 html element 추가
+document.body.appendChild(bgImage);
