@@ -107,3 +107,22 @@ bgImage.src = `img/${chosenImage}`;
 
 // appendChild() : html에 js로 작성한 html element 추가
 document.body.appendChild(bgImage);
+
+
+// 6.2 Recap
+/* Array에서 random하게 element를 골라 내는 방법을 학습함
+
+Math.random() : 0 이상 1 미만 무작위 값 반환
+0과 어떤 수 사이의 랜덤한 값을 가져오고 싶다면, 그 '어떤 수'를 곱해 줌 (위에선 array.lengh)
+
+Math.floor() : 소수점 뒷자리 버림
+
+Javascript에서 html element 만드는 방법
+document.createElement() : html element 생성
+document.body.appendChild() : html body에 element 추가
+document.body.prepend() : html body의 최상단에 element 추가 */
+
+// document.body.prepend() : body 최상단에 element 추가
+const prependTest = document.createElement("p");
+prependTest.innerText = "a test of prepend() method";
+document.body.prepend(prependTest);
