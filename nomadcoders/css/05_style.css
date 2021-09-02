@@ -1,0 +1,5 @@
+/* hidden class
+: 특정 요소에 hidden class를 주면 해당 요소를 숨기게 됨 */
+.hidden {
+    display: none;
+}
