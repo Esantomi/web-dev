@@ -1,3 +1,7 @@
+// 바닐라 JS로 크롬 앱 만들기
+// https://nomadcoders.co/javascript-for-beginners/lobby
+
+
 const images = [
     "0.jpg",
     "1.jpg",
@@ -13,3 +17,6 @@ const bgImage = document.createElement("img");
 
 bgImage.src = `img/${chosenImage}`;
 // console.log(bgImage);  // <img src="img/*.jpg">
+
+// appendChild() : html에 js로 작성한 html element 추가
+document.body.appendChild(bgImage);
