@@ -63,7 +63,7 @@ function paintToDo(newToDo) {
     span.innerText = newToDo;
     const btn = document.createElement("button");
     btn.innerText = "❌";
-    // 클릭 리스너
+    // ❌ 버튼 클릭 리스너
     btn.addEventListener("click", deleteToDo);
     // HTML 항목 추가
     li.appendChild(span);
@@ -75,7 +75,14 @@ function paintToDo(newToDo) {
 
 
 // 7.3 Saving ToDos
-const toDos = [];  // newToDo를 입력하면 입력 값을 toDos array에 push할 수 있어야 함
+// const toDos = [];  // newToDo를 입력하면 입력 값을 toDos array에 push할 수 있어야 함
+let toDos = [];       // const >> let. 업데이트 가능하게 변경
+
+/* 새로 값을 넣어 주면 기존의 Value가 사라지는 문제가 있다.
+이는 const toDos = [];로 toDos를 초기 설정해 줬기 때문에 생기는 문제다.
+
+해결책은 const를 let으로 바꿔 값을 업데이트할 수 있게 바꿔 주고,
+조건문에서 localStorage에 저장된 value를 toDos에 재할당해 주는 것이다. */ 
 
 // 입력 값을 localStorage에 저장하는 함수
 function saveToDos() {
@@ -85,7 +92,7 @@ function saveToDos() {
 
 // submit event에 대한 함수
 function handleToDoSubmit(e) {
-    e.preventDefault();d
+    e.preventDefault();
     const newToDo = toDoInput.value;
     toDoInput.value = "";
     toDos.push(newToDo);                            // toDos로 newToDo로 들어온 값을 push
@@ -124,7 +131,7 @@ const savedToDos = localStorage.getItem(TODOS_KEY);
 // localStorage에 아무 값도 없는 경우 확인 (null인 경우)
 if (savedToDos) {                                // if (savedToDos !== null)으로 쓸 수도 있다.
     const parsedToDos = JSON.parse(savedToDos);  // JS object로 parsing
-    // console.log(parsedToDos);                    // (3) ["a", "b", "c"]
+    // console.log(parsedToDos);                 // (3) ["a", "b", "c"]
 
     // array의 item(element) 각각에 대해 function 실행
     parsedToDos.forEach(element => {                     // 이벤트 리스너가 event 인자를 제공해 주는 것처럼, JS는 처리 중인 item(element)을 제공해 준다.
@@ -134,3 +141,24 @@ if (savedToDos) {                                // if (savedToDos !== null)으�
 
 /* 즉 parsedToDos에 있는 각각의 element에 대해 console.log를 실행한다.
 =>는 화살표 함수(arrow function)이라고 한다. */
+
+
+// 7.5 Loading ToDos part Two
+
+// parsedToDos 각각의 요소를 paintToDo에 넣어 주기
+if (savedToDos) {                                
+    const parsedToDos = JSON.parse(savedToDos);
+    toDos = parsedToDos;             // localStorage에 저장된 Value가 있다면 toDos를 []이 아닌, 저장된 값으로 재할당 (let이라 가능)
+    parsedToDos.forEach(paintToDo);  // 각각의 요소를 HTML span 태그의 innertext로 삽입
+}
+
+/* 새로 값을 넣어 주면 기존의 Value가 사라지는 문제가 있다.
+이는 const toDos = [];로 toDos를 초기 설정해 줬기 때문에 생기는 문제다.
+
+해결책은 const를 let으로 바꿔 값을 업데이트할 수 있게 바꿔 주고,
+조건문에서 localStorage에 저장된 value를 toDos에 재할당해 주는 것이다. */ 
+
+// 그런데 화면에서 X 버튼으로 값을 지워도 localStorage에는 여전히 남아 있어 새로고침을 하면 span 값을 계속 보여 주는 문제가 있다.
+
+
+// 7.6 Deleting ToDos part One
