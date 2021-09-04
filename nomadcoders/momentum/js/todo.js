@@ -38,9 +38,22 @@ function paintToDo1(newToDo) {
 // 7.2 Deleting ToDos
 // 버튼 누르면 li 태그 제거하는 함수
 function deleteToDo(e) {
-    console.log(e);         // PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
+    // console.log(e);  // PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …} 출력
+
     // 어떤 버튼이 눌렸는지 파악하기 위해 event의 path 사용
-    console.dir(e.target);  // parentNode: 부모가 누군지 알려줌
+    // target : 이벤트가 발생한 요소를 반환
+    // parentElement : 이벤트가 발생한 요소의 부모를 반환 (parentNode와 동일)
+
+    // console.dir(e.target);                          // button 출력
+    // console.dir(e.target.parentElement);            // li 출력
+    // console.log(e.target.parentElement);            // <li>...</li>
+    // console.dir(e.target.parentElement.innerText);  // 입력 값 출력
+
+    const li = e.target.parentElement;  // 제거할 li 태그
+    li.remove();
+    
+    /* 버튼 click 시 event를 얻음. event는 target(= 누가 click됐는지. 여기서는 버튼) 속성을 가짐.
+    이때 버튼은 부모(= li)를 갖는데, parentElement를 통해 파악이 가능함 */
 }
 
 // 입력 값을 li 태그로 넣어 주는 함수
