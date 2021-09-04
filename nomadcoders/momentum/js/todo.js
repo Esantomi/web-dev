@@ -22,7 +22,7 @@ toDoForm.addEventListener("submit", handleToDoSubmit);
 
 
 // 7.1 Adding ToDos
-function paintToDo(newToDo) {
+function paintToDo1(newToDo) {
     // console.log("이걸 그릴 거야:", newToDo);  // 테스트용
     const li = document.createElement("li");
     const span = document.createElement("span");
@@ -33,3 +33,27 @@ function paintToDo(newToDo) {
 }
 
 // 삭제가 불가하다는 것과 새로고침하면 ToDos가 사라진다는 문제점이 있음
+
+
+// 7.2 Deleting ToDos
+// 버튼 누르면 li 태그 제거하는 함수
+function deleteToDo(e) {
+    console.log(e);         // PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
+    // 어떤 버튼이 눌렸는지 파악하기 위해 event의 path 사용
+    console.dir(e.target);  // parentNode: 부모가 누군지 알려줌
+}
+
+// 입력 값을 li 태그로 넣어 주는 함수
+function paintToDo(newToDo) {
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    span.innerText = newToDo;
+    const btn = document.createElement("button");
+    btn.innerText = "❌";
+    // 클릭 리스너
+    btn.addEventListener("click", deleteToDo);
+    // HTML 항목 추가
+    li.appendChild(span);
+    li.appendChild(btn);
+    toDoList.appendChild(li);
+}
