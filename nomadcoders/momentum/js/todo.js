@@ -83,15 +83,9 @@ function saveToDos() {
     localStorage.setItem("todos", JSON.stringify(toDos));  // value를 ["a","b","c"] 형태로 저장 (중복도 가능)
 }
 
-/* localStorage는 array를 저장하지 못하고 텍스트만 저장할 수 있다는 문제가 있다.
-그렇다면 단순 text가 아닌 array 형태로 저장하는 방법은?
-
-JSON.stringify(): JS의 object든 array든 뭐든 간에 string으로 변형
-정확히는 Javascript 값이나 객체를 JSON 문자열로 변환하는 메서드이다. */
-
 // submit event에 대한 함수
 function handleToDoSubmit(e) {
-    e.preventDefault();
+    e.preventDefault();d
     const newToDo = toDoInput.value;
     toDoInput.value = "";
     toDos.push(newToDo);                            // toDos로 newToDo로 들어온 값을 push
@@ -101,4 +95,42 @@ function handleToDoSubmit(e) {
     // console.log(localStorage.getItem("todos"));  // "a,b,c"
 }
 
-// value가 a,b,c 형태가 아니라 ["a","b","c"]처럼 array 형태로 들어가면 좋겠다. (saveToDos 함수 참고)
+// localStorage의 value가 a,b,c 형태가 아니라 ["a","b","c"]처럼 array 형태로 들어가면 좋겠다.
+
+/* 그런데 localStorage는 array를 저장하지 못하고 텍스트만 저장할 수 있다는 문제가 있다.
+그렇다면 단순 text가 아닌 array를 원형 그대로 저장하는 방법은? >> JSON.stringify();
+
+JSON.stringify(): JS의 object든 array든 뭐든 간에 string으로 변형
+정확히는 Javascript 값이나 객체를 JSON 문자열로 변환하는 메서드이다.
+
+JSON.parse(): string을 Javascript object로 parsing해 주는 메서드
+가령 stringify로 문자열로 바꾼 array를 넣어 주면 다시 array가 된다. */
+
+
+// 7.4 Loading ToDos part One
+// localStorage에 있는 todos의 value들을 화면에 띄워 줄 수 있어야 한다.
+const TODOS_KEY = "todos";  // 자주 써서 변수 할당
+
+// JSON.stringify 메서드 예시
+console.log(JSON.stringify([1, 2, 3, 4]));  // "[1,2,3,4]"
+
+// JSON.parse 메서드 예시
+console.log(JSON.parse("[1,2,3,4]"));  // (4) [1, 2, 3, 4]
+
+// localStorage에서 "todos" key에 대응되는 value 가져오기
+const savedToDos = localStorage.getItem(TODOS_KEY);
+// console.log(savedToDos);  // ["a","b","c"]
+
+// localStorage에 아무 값도 없는 경우 확인 (null인 경우)
+if (savedToDos) {                                // if (savedToDos !== null)으로 쓸 수도 있다.
+    const parsedToDos = JSON.parse(savedToDos);  // JS object로 parsing
+    // console.log(parsedToDos);                    // (3) ["a", "b", "c"]
+
+    // array의 item(element) 각각에 대해 function 실행
+    parsedToDos.forEach(element => {                     // 이벤트 리스너가 event 인자를 제공해 주는 것처럼, JS는 처리 중인 item(element)을 제공해 준다.
+        console.log("처리되는 요소는 이것 :", element);  // 처리되는 요소는 이것 : a ... b ... c ... 출력 
+    });                                                  // parsedToDos.forEach(함수명); 형태도 가능하다.
+}
+
+/* 즉 parsedToDos에 있는 각각의 element에 대해 console.log를 실행한다.
+=>는 화살표 함수(arrow function)이라고 한다. */
