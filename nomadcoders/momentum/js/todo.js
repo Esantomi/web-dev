@@ -75,17 +75,30 @@ function paintToDo(newToDo) {
 
 
 // 7.3 Saving ToDos
-const toDos = [];  // newToDo를 입력하면 입력 값을 toDos array에 push해야 함
+const toDos = [];  // newToDo를 입력하면 입력 값을 toDos array에 push할 수 있어야 함
+
+// 입력 값을 localStorage에 저장하는 함수
+function saveToDos() {
+    // localStorage.setItem("todos", toDos);               // "todos": key, toDos: value
+    localStorage.setItem("todos", JSON.stringify(toDos));  // value를 ["a","b","c"] 형태로 저장 (중복도 가능)
+}
+
+/* localStorage는 array를 저장하지 못하고 텍스트만 저장할 수 있다는 문제가 있다.
+그렇다면 단순 text가 아닌 array 형태로 저장하는 방법은?
+
+JSON.stringify(): JS의 object든 array든 뭐든 간에 string으로 변형
+정확히는 Javascript 값이나 객체를 JSON 문자열로 변환하는 메서드이다. */
 
 // submit event에 대한 함수
 function handleToDoSubmit(e) {
     e.preventDefault();
     const newToDo = toDoInput.value;
     toDoInput.value = "";
-    toDos.push(newToDo);    // toDos로 newToDo로 들어온 값을 push
-    // console.log(toDos);  // (3) ["a", "b", "c"]
+    toDos.push(newToDo);                            // toDos로 newToDo로 들어온 값을 push
+    // console.log(toDos);                          // (3) ["a", "b", "c"]
     paintToDo(newToDo);
+    saveToDos();                                    // Key: todos, Value: a,b,c
+    // console.log(localStorage.getItem("todos"));  // "a,b,c"
 }
 
-// localStorage는 array를 저장하지 못하고 텍스트만 저장할 수 있다는 문제가 있다.
-// 2:17
+// value가 a,b,c 형태가 아니라 ["a","b","c"]처럼 array 형태로 들어가면 좋겠다. (saveToDos 함수 참고)
