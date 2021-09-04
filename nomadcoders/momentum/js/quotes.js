@@ -33,16 +33,16 @@ const quotes = [
         author: "Thucydides"
     },
     {
-        quote: "blank 1",
-        author: "someone"
+        quote: "One word brings another.",
+        author: "Euripides, <Trojan Women>"
     },
     {
-        quote: "blank 2",
-        author: "someone"
+        quote: "How sweet is life when fortune is not envious.",
+        author: "Menander"
     },
     {
-        quote: "blank 3",
-        author: "someone"
+        quote: "Better to die once and for all than to suffer pain for all my life.",
+        author: "Aeschylus, <Prometheus Bound>"
     }
 ]
 
