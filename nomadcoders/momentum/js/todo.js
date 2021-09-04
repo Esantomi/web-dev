@@ -10,7 +10,7 @@ const toDoList = document.getElementById("todo-list");
 const toDoInput = toDoForm.querySelector("input");
 
 // js가 발생한 event를 함수의 첫 번째 인자로 넘겨 줌
-function handleToDoSubmit(e) {
+function handleToDoSubmit1(e) {
     e.preventDefault();
     const newToDo = toDoInput.value;        // 입력 값 변수 할당
     toDoInput.value = "";                   // 이후 input 칸 비우기
@@ -70,3 +70,22 @@ function paintToDo(newToDo) {
     li.appendChild(btn);
     toDoList.appendChild(li);
 }
+
+// 하지만 저장을 하지 않으니 새로고침하면 사라지는 문제는 여전하다.
+
+
+// 7.3 Saving ToDos
+const toDos = [];  // newToDo를 입력하면 입력 값을 toDos array에 push해야 함
+
+// submit event에 대한 함수
+function handleToDoSubmit(e) {
+    e.preventDefault();
+    const newToDo = toDoInput.value;
+    toDoInput.value = "";
+    toDos.push(newToDo);    // toDos로 newToDo로 들어온 값을 push
+    // console.log(toDos);  // (3) ["a", "b", "c"]
+    paintToDo(newToDo);
+}
+
+// localStorage는 array를 저장하지 못하고 텍스트만 저장할 수 있다는 문제가 있다.
+// 2:17
