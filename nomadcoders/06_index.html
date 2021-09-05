@@ -1,0 +1,56 @@
+<!--브라우저는 html을 열고, html은 css와 JS를 가져온다.-->
+
+<!--! 누르고 엔터 치면 기본 틀 자동 완성-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">  <!--link:css 치고 엔터 누르면 기본 틀 자동 완성-->
+    <title>Momentum App</title>
+</head>
+<body>
+    <!--현재 시각-->
+    <h2 id="clock">00:00:00</h2>
+    <!--로그인-->
+    <form id="login-form" class="hidden"> 
+
+    <!--input 유효성 검사를 위해서는 input이 form 안에 있어야 한다.
+    즉, 필수 입력, 최대 길이 등 HTML의 도움을 받으려면 form을 활용해야 한다.
+    input을 form 안에 넣으면, 입력 후 엔터만 눌러도 form이 자동적으로 submit된다.
+    form이 submit되면 페이지는 자동으로 새로고침이 되기 때문에 이에 주의해야 한다.-->
+
+    <!-- <div id="login-form">  id로 값들을 찾기 위함 -->
+
+        <!--input(입력 창), required(필수 입력), maxlength(최대 길이), placeholder(안내 텍스트)-->
+        <input 
+            required 
+            maxlength="15" 
+            type="text" 
+            placeholder="이름이 뭐예요?" 
+        />
+        <input type="submit" value="로그인" />  <!--submit을 감지하는 로그인 버튼-->
+        <!-- <button>로그인</button> -->
+    <!-- </div> -->
+    </form> 
+    <!--안녕하세요 꼬깜님-->
+    <h1 id="greeting" class="hidden"></h1>
+    <!--할 일 리스트-->
+    <form id="todo-form">
+        <input type="text" placeholder="할 일을 적고 엔터를 누르세요." required/>
+    </form>
+    <!--li 태그는 js로 추가-->
+    <ul id="todo-list"></ul>
+    <!--무작위 명언-->
+    <div id="quote">
+        <span></span>
+        <span></span>
+    </div>
+    <!--JS 파일은 주로 맨 아래에서 불러온다.-->
+    <script src="js/03_login.js"></script>
+    <script src="js/04_clock.js"></script>
+    <script src="js/05_quotes-background.js"></script>
+    <script src="js/06_todo.js"></script>
+</body>
+</html> 
