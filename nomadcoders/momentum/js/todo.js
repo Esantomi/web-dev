@@ -37,7 +37,7 @@ function paintToDo1(newToDo) {
 
 // 7.2 Deleting ToDos
 // 버튼 누르면 li 태그 제거하는 함수
-function deleteToDo(e) {
+function deleteToDo1(e) {
     // console.log(e);  // PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …} 출력
 
     // 어떤 버튼이 눌렸는지 파악하기 위해 event의 path 사용
@@ -184,6 +184,12 @@ function handleToDoSubmit(e) {
     saveToDos();
 }
 
+function deleteToDo(e) {
+    const li = e.target.parentElement;  // 제거할 li 태그
+    console.log(li.id);                 // X 버튼을 누른 시점을 id 형태로 출력
+    li.remove();
+}
+
 // 브라우저에서 [object Object]로 보이는 문제 해결
 function paintToDo(newToDo) {
     const li = document.createElement("li");
@@ -224,7 +230,8 @@ console.log([1, 2, 3, 4].filter(noThreeFilter));  // (3) [1, 2, 4]
 const foodArr = ["chicken", "banana", "pizza"];
 console.log(foodArr.filter(noBananaFilter));      // (2) ["chicken", "pizza"]
 
-// [1, 2, 3, 4].filter(sexyFilter);
+// 함수 정의까지 arrow function으로 한번에 하기
+console.log([1, 2, 3, 4].filter(item => item > 2));  // (2) [3, 4]
 
 
 // 7.8 Deleting ToDos part Three
