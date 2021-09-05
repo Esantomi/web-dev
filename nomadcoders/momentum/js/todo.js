@@ -207,16 +207,24 @@ function paintToDo(newToDo) {
 
 // 7.7 Deleting ToDos part Two
 // 각각의 요소에 대해 true면 챙기고, false면 빼서 새롭게 array를 만드는 함수
-function trueFilter() {
-    return true;
+function trueFilter() {return true;}
+
+function falseFilter() {return false;}
+
+function noThreeFilter(item) {
+    return item !== 3
 }
 
-function falseFilter() {
-    return false;
-}
-
-console.log([1, 2, 3, 4].filter(trueFilter));   // (4) [1, 2, 3, 4]
-console.log([1, 2, 3, 4].filter(falseFilter));  // []
+function noBananaFilter(food) {return food !== "banana"}
 
 // Array.filter() : forEach와 유사하게, 매개변수로 갖는 함수를 Array 요소 각각에 적용해 준다.
+console.log([1, 2, 3, 4].filter(trueFilter));     // (4) [1, 2, 3, 4]
+console.log([1, 2, 3, 4].filter(falseFilter));    // []
+console.log([1, 2, 3, 4].filter(noThreeFilter));  // (3) [1, 2, 4]
+const foodArr = ["chicken", "banana", "pizza"];
+console.log(foodArr.filter(noBananaFilter));      // (2) ["chicken", "pizza"]
+
 // [1, 2, 3, 4].filter(sexyFilter);
+
+
+// 7.8 Deleting ToDos part Three
