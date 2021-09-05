@@ -184,7 +184,7 @@ function handleToDoSubmit(e) {
     saveToDos();
 }
 
-function deleteToDo(e) {
+function deleteToDo2(e) {
     const li = e.target.parentElement;  // 제거할 li 태그
     console.log(li.id);                 // X 버튼을 누른 시점을 id 형태로 출력
     li.remove();
@@ -230,8 +230,28 @@ console.log([1, 2, 3, 4].filter(noThreeFilter));  // (3) [1, 2, 4]
 const foodArr = ["chicken", "banana", "pizza"];
 console.log(foodArr.filter(noBananaFilter));      // (2) ["chicken", "pizza"]
 
+
+// 7.8 Deleting ToDos part Three
+
 // 함수 정의까지 arrow function으로 한번에 하기
 console.log([1, 2, 3, 4].filter(item => item > 2));  // (2) [3, 4]
 
+const testArr = [1, 2, 3, 4];                         // testArr는 그대로. 즉 filter는 원본 값 변화 X
+const testArrNew = testArr.filter(item => item > 2);  // filter를 적용한 값을 새 변수에 할당
 
-// 7.8 Deleting ToDos part Three
+console.log(testArr);     // (4) [1, 2, 3, 4]
+console.log(testArrNew);  // (2) [3, 4]
+
+// ToDo 제거 함수에 filter 적용
+function deleteToDo(e) {
+    const li = e.target.parentElement;  // 제거할 li 태그
+    li.remove();
+
+    // X 버튼 클릭한 li.id와 다른 값들만 남김 
+    toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));  // string을 int로 변형
+    saveToDos();
+
+    // li.id는 string인데 toDo.id는 number이므로 string 출력
+    // toDos = toDos.filter(toDo => toDo.id !== li.id);
+    // console.log(typeof li.id);  // string
+}
