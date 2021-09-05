@@ -57,7 +57,7 @@ function deleteToDo(e) {
 }
 
 // 입력 값을 li 태그로 넣어 주는 함수
-function paintToDo(newToDo) {
+function paintToDo1(newToDo) {
     const li = document.createElement("li");
     const span = document.createElement("span");
     span.innerText = newToDo;
@@ -91,7 +91,7 @@ function saveToDos() {
 }
 
 // submit event에 대한 함수
-function handleToDoSubmit(e) {
+function handleToDoSubmit1(e) {
     e.preventDefault();
     const newToDo = toDoInput.value;
     toDoInput.value = "";
@@ -162,3 +162,47 @@ if (savedToDos) {
 
 
 // 7.6 Deleting ToDos part One
+/* localStorage는 데이터베이스는 아니며, 데이터베이스인 array를 복사해 두는 곳이다.
+그런데 ["a", "b", "a"]처럼 중복 값이 들어가면 둘 중 어느 걸 지워야 할지 구분이 힘들다.
+고로 [{id:1111, text:"a"}] 같은 형태로 element에 id를 부여하는데, Date.now()로 id를 주면 편하다. */
+
+function handleToDoSubmit(e) {
+    e.preventDefault();
+    const newToDo = toDoInput.value;
+    toDoInput.value = "";
+
+    // 단순 텍스트가 아닌 object를 push
+    const newToDoObj = {
+        text: newToDo,
+        id: Date.now()
+    }
+
+    // toDos.push(newToDo);  // toDos로 newToDo로 들어온 값을 push
+    toDos.push(newToDoObj);  // object를 toDos array에 push
+    // paintToDo(newToDo);
+    paintToDo(newToDoObj);  // paintToDo 함수에 텍스트 대신 object 전달. 하지만 브라우저에서 [object Object]로 보이는 문제가 있음
+    saveToDos();
+}
+
+// 브라우저에서 [object Object]로 보이는 문제 해결
+function paintToDo(newToDo) {
+    const li = document.createElement("li");
+    li.id = newToDo.id;  // li의 id로 newToDoObj의 id 할당. <li id="1630804307160">
+
+    const span = document.createElement("span");
+
+    // span.innerText = newToDo;
+    span.innerText = newToDo.text;  // newToDo로 들어온 newToDoObj는 id와 text key로 구성돼 있음
+
+    const btn = document.createElement("button");
+    btn.innerText = "❌";
+    // ❌ 버튼 클릭 리스너
+    btn.addEventListener("click", deleteToDo);
+    // HTML 항목 추가
+    li.appendChild(span);
+    li.appendChild(btn);
+    toDoList.appendChild(li);
+}
+
+
+// 7.7 Deleting ToDos part Two
